@@ -1,4 +1,4 @@
 function App() {
-  return <div>Pizza app</div>;
+  return <div>Pizza App</div>;
 }
 export default App;
