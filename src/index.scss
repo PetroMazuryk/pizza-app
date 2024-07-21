@@ -1,5 +1,12 @@
 :root {
   --color-green: #258850;
+  --bg-card: #e9dab3;
+
+  --bg-btn: #ebe8e8;
+  --bg-btn-hover: #d6d0d0;
+  --bg-btn-active: #beafaf;
+  --bg-btn-accent: #282828;
+  --btn-text-accent: #fff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -45,5 +52,6 @@ img {
 }
 
 button {
+  border: none;
   cursor: pointer;
 }

@@ -1,0 +1,50 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  margin: 36px;
+  gap: 8px;
+}
+
+.btn {
+  font-size: 12px;
+  font-weight: bold;
+  color: inherit;
+  background-color: var(--bg-btn);
+  width: 133px;
+  padding: 8px 12px;
+  border-radius: 30px;
+  transition: background-color 250ms ease;
+
+  &:hover {
+    background-color: var(--bg-btn-hover);
+  }
+
+  &:active {
+    background-color: var(--bg-btn-active);
+  }
+
+  &.active {
+    background-color: var(--bg-btn-accent);
+    color: var(--btn-text-accent);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .list {
+    flex-direction: row;
+  }
+
+  .btn {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .list {
+    gap: 12px;
+  }
+
+  .btn {
+    font-size: 16px;
+  }
+}
