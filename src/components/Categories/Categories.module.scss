@@ -31,6 +31,7 @@
 
 @media screen and (min-width: 768px) {
   .list {
+    flex-wrap: wrap;
     flex-direction: row;
   }
 
@@ -46,5 +47,6 @@
 
   .btn {
     font-size: 16px;
+    width: 148px;
   }
 }

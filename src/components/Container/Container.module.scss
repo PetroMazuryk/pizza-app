@@ -1,0 +1,23 @@
+.container {
+  width: calc(100vw - 32px);
+  height: 100%;
+  margin: 12px auto;
+  padding: 12px 18px;
+  min-height: calc(100vh - 96px);
+
+  background-color: #f8f5f5;
+  border-radius: 10px;
+
+  @media screen and (min-width: 768px) {
+    width: calc(100vw - 60px);
+    margin: 24px auto;
+    padding: 12px 24px 36px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: calc(100vw - 200px);
+    margin: 36px auto;
+
+    padding: 32px 36px 64px;
+  }
+}
