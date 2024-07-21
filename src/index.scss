@@ -1,16 +1,24 @@
+:root {
+  --color-green: #258850;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 body {
   background-color: #f8f9f9;
   background-size: auto 100%;
   background-position: center center;
   background-repeat: no-repeat;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Nunito', Roboto, system-ui, Tahoma, sans-serif;
   font-weight: 400;
   font-style: normal;
   color: #111111;
   width: 100%;
   height: 100vh;
   margin: 0;
-  text-align: center;
+  // text-align: center;
 }
 h1,
 h2,
@@ -21,17 +29,21 @@ h6,
 p {
   margin-top: 0;
 }
+
 a {
   text-decoration: none;
 }
+
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
 img {
-  display: block;
+  display: inline-block;
 }
+
 button {
   cursor: pointer;
 }

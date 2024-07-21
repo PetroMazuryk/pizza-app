@@ -1,4 +1,10 @@
-function App() {
-  return <div>Pizza App</div>;
-}
+import PizzaList from './components/PizzaList/PizzaList';
+
+const App = () => {
+  return (
+    <>
+      <PizzaList title="Чотири сири" price={100} />
+    </>
+  );
+};
 export default App;
