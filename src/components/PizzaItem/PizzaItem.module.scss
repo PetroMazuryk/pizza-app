@@ -1,6 +1,26 @@
-.img {
-  width: 230px;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   text-align: center;
+
+  width: 280px;
+
+  padding: 8px 6px;
+  border-radius: 16px;
+  background-color: var(--bg-card);
+  transition: var(--transition);
+
+  &:hover {
+    transform: scale(1.03);
+  }
+}
+
+.wrapperImg {
+}
+
+.img {
+  width: 248px;
 }
 
 .title {
@@ -10,4 +30,35 @@
   text-shadow:
     4px 4px 5px grey,
     2px 2px 1px red;
+}
+
+.listTypes {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.listSizes {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 10px;
+}
+
+.itemSizes {
+  padding: 6px;
+  background-color: aliceblue;
+  border-radius: 10px;
+}
+
+.wrapperPrice {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    padding: 20px 16px;
+  }
 }

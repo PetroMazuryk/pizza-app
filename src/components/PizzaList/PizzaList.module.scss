@@ -2,5 +2,18 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  background-color: var(--bg-card);
+  gap: 22px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    gap: 42px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .wrapper {
+    max-width: 1200px;
+  }
 }
