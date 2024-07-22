@@ -1,18 +1,6 @@
 .wrapper {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   background-color: var(--bg-card);
-}
-
-.img {
-  width: 230px;
-  text-align: center;
-}
-
-.title {
-  font-size: 30px;
-  font-weight: 900;
-  color: var(--color-green);
-  text-shadow:
-    4px 4px 5px grey,
-    2px 2px 1px red;
 }
