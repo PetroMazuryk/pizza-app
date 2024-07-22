@@ -26,29 +26,56 @@
 .title {
   font-size: 30px;
   font-weight: 900;
+  margin-bottom: 12px;
   color: var(--color-green);
   text-shadow:
-    4px 4px 5px grey,
-    2px 2px 1px red;
+    4px 4px 5px #808080,
+    2px 2px 1px #ff0000;
 }
 
 .listTypes {
   display: flex;
   justify-content: center;
   gap: 8px;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  background-color: #bf8257;
+}
+
+.itemTypes {
+  padding: 6px;
+  border-radius: 12px;
+  background-color: #f0f8ff;
+  width: 98px;
+
+  &.active {
+    background-color: var(--bg-btn-active);
+    border: 1px solid var(--color-green);
+    color: var(--btn-text-accent);
+  }
 }
 
 .listSizes {
   display: flex;
   justify-content: center;
   gap: 8px;
-  margin: 10px;
+  margin-bottom: 12px;
+  padding: 10px;
+  border-radius: 12px;
+  background-color: #bf8257;
 }
 
 .itemSizes {
   padding: 6px;
   background-color: aliceblue;
   border-radius: 10px;
+
+  &.active {
+    background-color: var(--bg-btn-active);
+    border: 1px solid var(--color-green);
+    color: var(--btn-text-accent);
+  }
 }
 
 .wrapperPrice {
