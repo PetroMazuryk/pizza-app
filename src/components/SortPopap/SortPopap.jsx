@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import scss from './SortPopap.module.scss';
 
 const SortPopup = () => {
   const [visiblePopup, setVisiblePopup] = useState(false);
   const [selected, setSelected] = useState(0);
+  const popupRef = useRef();
 
   const sortOptions = ['популярністю ', 'алфавітом', 'ціною'];
   const sortName = sortOptions[selected];
@@ -13,8 +14,21 @@ const SortPopup = () => {
     setVisiblePopup(false);
   };
 
+  const handleOutsideClick = (e) => {
+    if (popupRef.current && !popupRef.current.contains(e.target)) {
+      setVisiblePopup(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleOutsideClick);
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+    };
+  }, []);
+
   return (
-    <div className={scss.sort}>
+    <div className={scss.sort} ref={popupRef}>
       <div className={scss.sortLabel}>
         <svg
           width="10"
