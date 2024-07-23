@@ -6,7 +6,7 @@ const PizzaItem = ({ imageUrl, title, price, sizes, types }) => {
   const [activeType, setActiveType] = useState(0);
   const [activeSize, setActiveSize] = useState(0);
 
-  const typenames = ['тонке', 'традиційне'];
+  const typeNames = ['тонке', 'традиційне'];
 
   return (
     <div className={scss.wrapper}>
@@ -24,7 +24,7 @@ const PizzaItem = ({ imageUrl, title, price, sizes, types }) => {
                 [scss.active]: activeType === typeId,
               })}
             >
-              {typenames[typeId]}
+              {typeNames[typeId]}
             </li>
           ))}
         </ul>

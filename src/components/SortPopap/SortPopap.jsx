@@ -1,6 +1,18 @@
+import { useState } from 'react';
 import scss from './SortPopap.module.scss';
 
 const SortPopup = () => {
+  const [visiblePopup, setVisiblePopup] = useState(false);
+  const [selected, setSelected] = useState(0);
+
+  const sortOptions = ['популярністю ', 'алфавітом', 'ціною'];
+  const sortName = sortOptions[selected];
+
+  const onClickListItem = (index) => {
+    setSelected(index);
+    setVisiblePopup(false);
+  };
+
   return (
     <div className={scss.sort}>
       <div className={scss.sortLabel}>
@@ -16,15 +28,24 @@ const SortPopup = () => {
             fill="#2C2C2C"
           />
         </svg>
-        <b>Сортування по:</b>
-        <span>activeLabel</span>
+        <b>Сортування за:</b>
+        <span onClick={() => setVisiblePopup(!visiblePopup)}>{sortName}</span>
       </div>
-
-      <div className={scss.sortPopap}>
-        <ul>
-          <li>obj.name </li>
-        </ul>
-      </div>
+      {visiblePopup && (
+        <div className={scss.sortPopap}>
+          <ul>
+            {sortOptions.map((name, index) => (
+              <li
+                key={index}
+                onClick={() => onClickListItem(index)}
+                className={selected === index ? 'active' : ''}
+              >
+                {name}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };
