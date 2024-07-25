@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+
 import scss from './SortPopap.module.scss';
 
 const SortPopup = () => {
@@ -42,6 +43,7 @@ const SortPopup = () => {
             fill="#2C2C2C"
           />
         </svg>
+
         <b>Сортування за:</b>
         <span onClick={() => setVisiblePopup(!visiblePopup)}>{sortName}</span>
       </div>

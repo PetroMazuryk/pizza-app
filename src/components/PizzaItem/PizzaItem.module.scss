@@ -10,17 +10,25 @@
   border-radius: 16px;
   background-color: var(--bg-card);
   transition: var(--transition);
-
-  &:hover {
-    transform: scale(1.03);
-  }
 }
 
 .wrapperImg {
+  // position: relative;
+  overflow: hidden;
+  width: 248px; // або встановіть фіксовану ширину
+  height: auto; // або встановіть фіксовану висоту
+  border-radius: 8px; // опціонально, щоб додати округлення кутів
 }
 
 .img {
-  width: 248px;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 250ms linear;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 .title {
