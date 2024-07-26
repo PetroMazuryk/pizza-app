@@ -5,24 +5,16 @@
 
 .sortLabel {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-
-  svg {
-    margin-right: 8px;
-    transform: rotate(180deg);
-
-    &.rotated {
-      transform: rotate(0);
-    }
-  }
 
   b {
     margin-right: 8px;
   }
 
   span {
-    color: orange;
-    border-bottom: 1px dashed orange;
+    color: var(--color-orange);
+    border-bottom: 1px dashed var(--color-orange);
     cursor: pointer;
   }
 }
@@ -31,8 +23,9 @@
   position: absolute;
   right: 0;
   margin-top: 15px;
+  z-index: 5;
   background: #ffffff;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+  box-shadow: 0px 5px 15px hwb(0 0% 100% / 0.09);
   border-radius: 10px;
   overflow: hidden;
   padding: 10px 0;
@@ -46,19 +39,20 @@
 
       &.active,
       &:hover {
-        background: rgba(254, 95, 30, 0.05);
-      }
-
-      &.active {
-        font-weight: bold;
-        color: orange;
+        background: rgba(254, 95, 30, 0.1);
       }
     }
   }
 }
 
-.logo {
-  fill: #0000ff;
-  stroke: red;
-  background: yellowgreen;
+.svg {
+  margin-right: 8px;
+  fill: var(--bg-btn-accent);
+
+  transition: transform 0.3s ease-in-out;
+}
+
+.rotated {
+  transform: rotate(180deg);
+  fill: var(--color-green);
 }

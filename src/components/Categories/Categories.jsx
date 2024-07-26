@@ -12,18 +12,23 @@ const Categories = () => {
   };
 
   return (
-    <ul className={scss.list}>
-      {categoryOptions.map((option, index) => (
-        <li key={index}>
-          <button
-            onClick={() => handleCategory(index)}
-            className={clsx(scss.btn, { [scss.active]: activeIndex === index })}
-          >
-            {option}
-          </button>
-        </li>
-      ))}
-    </ul>
+    <div>
+      <ul className={scss.list}>
+        {categoryOptions.map((option, index) => (
+          <li key={index}>
+            <button
+              onClick={() => handleCategory(index)}
+              className={clsx(scss.btn, {
+                [scss.active]: activeIndex === index,
+              })}
+            >
+              {option}
+            </button>
+          </li>
+        ))}
+      </ul>
+      {/* <div className={scss.titleCategory}>{categoryOptions[activeIndex]}</div> */}
+    </div>
   );
 };
 

@@ -37,13 +37,13 @@ const PizzaItem = ({ imageUrl, title, price, sizes, types }) => {
                 [scss.active]: activeSize === index,
               })}
             >
-              {size} см.
+              {size} см
             </li>
           ))}
         </ul>
       </div>
       <div className={scss.wrapperPrice}>
-        <div> {price} грн.</div>
+        <div> {price} грн</div>
         <button>Додати</button>
       </div>
     </div>
