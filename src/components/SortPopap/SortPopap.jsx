@@ -43,7 +43,7 @@ const SortPopup = () => {
           width="16"
           height="16"
         >
-          <use href={`${sprite}#icon-circle-down`}></use>
+          <use href={`${sprite}#icon-circle-up`}></use>
         </svg>
 
         <b>Сортування за:</b>

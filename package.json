@@ -13,10 +13,13 @@
   },
   "dependencies": {
     "@vitejs/plugin-react-swc": "^3.3.2",
+    "axios": "^1.7.2",
     "clsx": "^2.1.1",
+    "env": "^0.0.2",
     "modern-normalize": "^2.0.0",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
+    "react-content-loader": "^7.0.2",
     "react-dom": "^18.2.0",
     "sass": "^1.77.8",
     "vite-plugin-svgr": "^3.2.0"
