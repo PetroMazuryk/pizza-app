@@ -7,7 +7,7 @@ import scss from './Container.module.scss';
 
 import SortPopup from '../SortPopap/SortPopap';
 
-const BASE_URL = import.meta.env.VITE_API_URL;
+const BASE_URL = import.meta.env.VITE_API_TEST;
 export const Container = () => {
   const [items, setItems] = useState([]);
 
