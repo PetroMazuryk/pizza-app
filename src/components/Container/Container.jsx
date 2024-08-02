@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Categories from '../Categories/Categories';
 import PizzaList from '../PizzaList/PizzaList';
 import Skeleton from '../Skeleton/Skeleton';
+import Header from '../Header/Header';
 
 import scss from './Container.module.scss';
 
@@ -25,6 +26,7 @@ export const Container = () => {
 
   return (
     <div className={scss.container}>
+      <Header />
       <div className={scss.wrapper}>
         <Categories />
         <SortPopup />

@@ -17,11 +17,10 @@
 }
 
 .wrapperImg {
-  // position: relative;
   overflow: hidden;
-  width: 248px; // або встановіть фіксовану ширину
-  height: auto; // або встановіть фіксовану висоту
-  border-radius: 8px; // опціонально, щоб додати округлення кутів
+  width: 248px;
+  height: auto;
+  border-radius: 8px;
 }
 
 .img {
@@ -36,9 +35,7 @@
   font-weight: 900;
   margin-bottom: 12px;
   color: var(--color-green);
-  text-shadow:
-    4px 4px 5px #808080,
-    2px 2px 1px #ff0000;
+  text-shadow: var(--text-shadow);
 }
 
 .listTypes {
