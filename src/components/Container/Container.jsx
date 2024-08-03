@@ -31,6 +31,7 @@ export const Container = () => {
         <Categories />
         <SortPopup />
       </div>
+
       {isloading ? (
         [...new Array(6)].map((_, index) => <Skeleton key={index} />)
       ) : (

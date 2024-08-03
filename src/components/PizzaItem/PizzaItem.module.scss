@@ -6,7 +6,7 @@
 
   width: 280px;
 
-  padding: 8px 6px;
+  padding: 20px 16px;
   border-radius: 16px;
   background-color: var(--bg-card);
   transition: var(--transition);
@@ -87,10 +87,4 @@
   display: flex;
   justify-content: center;
   gap: 20px;
-}
-
-@media screen and (min-width: 768px) {
-  .wrapper {
-    padding: 20px 16px;
-  }
 }
