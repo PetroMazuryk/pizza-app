@@ -9,7 +9,7 @@ import './index.scss';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter basename="/pizza-app">
-      <Provider>
+      <Provider store={store}>
         <App />
       </Provider>
     </BrowserRouter>
