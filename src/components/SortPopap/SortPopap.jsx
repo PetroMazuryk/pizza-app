@@ -56,7 +56,7 @@ const SortPopup = () => {
               <li
                 key={index}
                 onClick={() => onClickListItem(index)}
-                className={selected === index ? 'active' : ''}
+                className={selected === index ? scss.active : ''}
               >
                 {name}
               </li>
