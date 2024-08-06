@@ -9,7 +9,7 @@ const initialState = {
 };
 
 const filterSlice = createSlice({
-  name: 'filter',
+  name: 'filters',
   initialState,
   reducers: {
     setCategoryId(state, action) {
@@ -20,4 +20,4 @@ const filterSlice = createSlice({
 
 export const { setCategoryId } = filterSlice.actions;
 
-export const filterReducer = filterSlice.reducer;
+export const filtersReducer = filterSlice.reducer;

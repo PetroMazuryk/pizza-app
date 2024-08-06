@@ -1,25 +1,28 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setCategoryId } from '../../redux/slices/filterSlice';
+import { selectCategoryId } from '../../redux/slices/selectors';
 import { categoryOptions } from '../../constants/categoryOptions';
 
 import scss from './Categories.module.scss';
 
 const Categories = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const categoryId = useSelector(selectCategoryId);
+  const dispatch = useDispatch();
 
   const handleCategory = (idx) => {
-    setActiveIndex(idx);
+    dispatch(setCategoryId(idx));
   };
 
   return (
     <div>
       <ul className={scss.list}>
-        {categoryOptions.map((option, index) => (
-          <li key={index}>
+        {categoryOptions.map((option, idx) => (
+          <li key={idx}>
             <button
-              onClick={() => handleCategory(index)}
+              onClick={() => handleCategory(idx)}
               className={clsx(scss.btn, {
-                [scss.active]: activeIndex === index,
+                [scss.active]: categoryId === idx,
               })}
             >
               {option}
