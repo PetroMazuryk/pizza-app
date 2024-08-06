@@ -4,7 +4,7 @@ const initialState = {
   categoryId: 0,
   sort: {
     name: 'популярністю',
-    sortProperty: 'rating',
+    value: 'rating',
   },
 };
 
@@ -15,9 +15,13 @@ const filterSlice = createSlice({
     setCategoryId(state, action) {
       state.categoryId = action.payload;
     },
+
+    setSortType: (state, action) => {
+      state.sort = action.payload;
+    },
   },
 });
 
-export const { setCategoryId } = filterSlice.actions;
+export const { setCategoryId, setSortType } = filterSlice.actions;
 
 export const filtersReducer = filterSlice.reducer;

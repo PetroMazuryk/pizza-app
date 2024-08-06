@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
+
+import { sortOptions } from '../../constants/sortOptions';
 import sprite from '../../assets/sprite.svg';
 import scss from './SortPopap.module.scss';
 
@@ -8,12 +10,12 @@ const SortPopup = () => {
   const [isRotated, setIsRotated] = useState(false);
   const popupRef = useRef();
 
-  const sortOptions = ['популярністю ', 'алфавітом', 'ціною'];
-  const sortName = sortOptions[selected];
+  const sortName = sortOptions[selected].name;
 
   const onClickListItem = (index) => {
     setSelected(index);
     setVisiblePopup(false);
+    setIsRotated(false);
   };
 
   const handleOutsideClick = (e) => {
@@ -52,13 +54,13 @@ const SortPopup = () => {
       {visiblePopup && (
         <div className={scss.sortPopap}>
           <ul>
-            {sortOptions.map((name, index) => (
+            {sortOptions.map((option, index) => (
               <li
                 key={index}
                 onClick={() => onClickListItem(index)}
                 className={selected === index ? scss.active : ''}
               >
-                {name}
+                {option.name}
               </li>
             ))}
           </ul>
