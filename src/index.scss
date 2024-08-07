@@ -11,7 +11,7 @@
   --btn-text-accent: #fff;
 
   --text-shadow: 4px 4px 5px #808080, 2px 2px 1px #ff0000;
-
+  --box-shadow: 0 2px 0 rgba(255, 0, 0, 0.2);
   --transition: all 250ms ease;
 
   font-synthesis: none;
@@ -32,6 +32,7 @@ body {
   height: 100vh;
   margin: 0;
 }
+
 h1,
 h2,
 h3,
@@ -53,6 +54,7 @@ ul {
 }
 
 img {
+  max-width: 100%;
   display: block;
 }
 

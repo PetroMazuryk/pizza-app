@@ -1,0 +1,44 @@
+.searchWrapper {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.searchInput {
+  width: 100%;
+  outline: none;
+  padding: 12px 20px 12px 34px;
+  border-radius: 16px;
+  border: 1px solid var(--color-orange);
+  transition: var (--transition);
+
+  &:focus {
+    box-shadow: var(--box-shadow);
+  }
+}
+
+.iconSearch {
+  fill: var(--bg-btn-accent);
+  position: absolute;
+  top: 24px;
+  transform: translateY(-50%);
+  left: 12px;
+
+  &:hover {
+    fill: var(--color-green);
+  }
+}
+
+.iconClose {
+  stroke: var(--bg-btn-accent);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 12px;
+  cursor: pointer;
+  transition: var (--transition);
+  z-index: 9;
+
+  &:hover {
+    stroke: red;
+  }
+}

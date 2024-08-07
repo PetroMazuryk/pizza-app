@@ -1,6 +1,8 @@
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/logo-pizza.png';
+import Search from '../Search/Search';
 import scss from './Header.module.scss';
+
 const Header = () => {
   return (
     <header className={scss.header}>
@@ -21,7 +23,7 @@ const Header = () => {
             </div>
           </NavLink>
         </div>
-
+        <Search />
         <NavLink className={scss.linCart} to="/cart">
           <p className={scss.carttext}>total Price грн.</p>
 

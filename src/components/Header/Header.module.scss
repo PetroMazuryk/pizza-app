@@ -1,7 +1,6 @@
 .header {
-  padding-bottom: 20px;
   border-bottom: 1px solid var(--color-orange);
-  box-shadow: 0 2px 0 rgba(255, 0, 0, 0.2);
+  box-shadow: var(--box-shadow);
 }
 
 .container {
@@ -9,15 +8,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 0 100px;
 }
 
 .logoWrapper {
+  min-width: 268px;
   display: flex;
   align-items: center;
-
-  margin-bottom: 20px;
   gap: 30px;
+  margin-bottom: 10px;
 }
 
 .logoImg {
@@ -48,12 +46,12 @@
 @media screen and (min-width: 768px) {
   .container {
     flex-direction: row;
+    justify-content: space-around;
   }
 
   .logoWrapper {
-    justify-content: start;
-    margin-bottom: 0;
-    flex: 3;
+    min-width: 378px;
+    gap: 30px;
   }
 
   .logoName {
