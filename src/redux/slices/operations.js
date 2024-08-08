@@ -5,9 +5,13 @@ axios.defaults.baseURL = import.meta.env.VITE_API_TEST;
 
 export const fetchPizzas = createAsyncThunk(
   'pizzas/fetchAll',
-  async (_, thunkAPI) => {
+  async (filterSearch, thunkAPI) => {
     try {
-      const { data } = await axios.get(`/items`);
+      const { data } = await axios.get(`/items`, {
+        params: {
+          search: filterSearch || '',
+        },
+      });
 
       return data;
     } catch (error) {

@@ -1,6 +1,10 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectPizzas, selectIsLoading } from '../../redux/slices/selectors';
+import {
+  selectPizzas,
+  selectIsLoading,
+  selectFilter,
+} from '../../redux/slices/selectors';
 import { fetchPizzas } from '../../redux/slices/operations';
 import Categories from '../Categories/Categories';
 import PizzaList from '../PizzaList/PizzaList';
@@ -14,11 +18,12 @@ import SortPopup from '../SortPopap/SortPopap';
 export const Container = () => {
   const items = useSelector(selectPizzas);
   const isloading = useSelector(selectIsLoading);
+  const filterSearch = useSelector(selectFilter);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchPizzas());
-  }, [dispatch]);
+    dispatch(fetchPizzas(filterSearch));
+  }, [dispatch, filterSearch]);
 
   return (
     <div className={scss.container}>
