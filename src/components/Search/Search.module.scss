@@ -4,7 +4,7 @@
 }
 
 .searchInput {
-  width: 100%;
+  width: 360px;
   outline: none;
   padding: 12px 20px 12px 34px;
   border-radius: 16px;
@@ -16,6 +16,10 @@
   }
 }
 
+.errorText {
+  text-align: center;
+  color: tomato;
+}
 .iconSearch {
   fill: var(--bg-btn-accent);
   position: absolute;
