@@ -17,9 +17,12 @@
 }
 
 .errorText {
-  text-align: center;
   color: tomato;
+  position: absolute;
+  top: 56px;
+  transform: translateY(-50%);
 }
+
 .iconSearch {
   fill: var(--bg-btn-accent);
   position: absolute;
