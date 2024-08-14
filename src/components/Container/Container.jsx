@@ -6,14 +6,15 @@ import {
   selectFilter,
 } from '../../redux/slices/selectors';
 import { fetchPizzas } from '../../redux/slices/operations';
+
 import Categories from '../Categories/Categories';
 import PizzaList from '../PizzaList/PizzaList';
 import Skeleton from '../Skeleton/Skeleton';
 import Header from '../Header/Header';
+import SortPopup from '../SortPopap/SortPopap';
+import Pagination from '../Pagination/Pagination';
 
 import scss from './Container.module.scss';
-
-import SortPopup from '../SortPopap/SortPopap';
 
 export const Container = () => {
   const items = useSelector(selectPizzas);
@@ -38,6 +39,7 @@ export const Container = () => {
       ) : (
         <PizzaList items={items} />
       )}
+      <Pagination />
     </div>
   );
 };

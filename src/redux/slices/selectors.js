@@ -7,3 +7,5 @@ export const selectFilter = (state) => state.filters.filterSearch;
 export const selectCategoryId = (state) => state.filters.categoryId;
 
 export const selectSortType = (state) => state.filters.sort;
+
+export const selectPageCount = (state) => state.filters.pageCount;

@@ -32,7 +32,7 @@ const Search = () => {
         dispatch(changeFilterSearch(str));
       }
     }, 300),
-    [dispatch, schema]
+    []
   );
 
   const onChangeInput = (event) => {
