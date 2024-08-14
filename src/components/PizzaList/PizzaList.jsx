@@ -4,15 +4,9 @@ import scss from './PizzaList.module.scss';
 const PizzaList = ({ items }) => {
   return (
     <ul className={scss.wrapper}>
-      {items.map(({ id, imageUrl, title, price, sizes, types }) => (
-        <li key={id}>
-          <PizzaItem
-            imageUrl={imageUrl}
-            title={title}
-            price={price}
-            sizes={sizes}
-            types={types}
-          />
+      {items.map((pizza) => (
+        <li key={pizza.id}>
+          <PizzaItem {...pizza} />
         </li>
       ))}
     </ul>
