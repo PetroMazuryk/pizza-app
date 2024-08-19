@@ -32,7 +32,7 @@ const filterSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchPizzasByCategory.fulfilled, (state, action) => {
-      state.pageCount = Math.ceil(action.payload.totalCount / 8); // Вважаємо, що на сторінці 8 товарів
+      state.pageCount = Math.ceil(action.payload.totalCount / 8);
       state.totalPages = action.payload.totalPages;
     });
   },

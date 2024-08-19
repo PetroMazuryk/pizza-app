@@ -4,6 +4,7 @@ import {
   selectPizzas,
   selectIsLoading,
   selectFilter,
+  selectCategoryId,
 } from '../../redux/slices/selectors';
 import { fetchPizzas } from '../../redux/slices/operations';
 
@@ -19,12 +20,19 @@ import scss from './Container.module.scss';
 export const Container = () => {
   const items = useSelector(selectPizzas);
   const isloading = useSelector(selectIsLoading);
-  const filterSearch = useSelector(selectFilter);
+  // const filterSearch = useSelector(selectFilter);
+  const categoryId = useSelector(selectCategoryId);
   const dispatch = useDispatch();
 
+  // useEffect(() => {
+  //   dispatch(fetchPizzas(filterSearch));
+  // }, [dispatch, filterSearch]);
+
   useEffect(() => {
-    dispatch(fetchPizzas(filterSearch));
-  }, [dispatch, filterSearch]);
+    const category = categoryId > 0 ? `category=${categoryId}` : '';
+
+    dispatch(fetchPizzas({ category }));
+  }, [categoryId, dispatch]);
 
   return (
     <div className={scss.container}>
