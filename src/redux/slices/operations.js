@@ -21,9 +21,11 @@ axios.defaults.baseURL = import.meta.env.VITE_API_TEST;
 
 export const fetchPizzas = createAsyncThunk(
   'pizzas/fetchAll',
-  async ({ category }, thunkAPI) => {
+  async ({ category, order, sortBy }, thunkAPI) => {
     try {
-      const { data } = await axios.get(`/items?${category}`);
+      const { data } = await axios.get(
+        `/items?${category}&sortBy=${sortBy}&${order}`
+      );
 
       return data;
     } catch (error) {

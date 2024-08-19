@@ -1,19 +1,22 @@
 import { useState, useEffect, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { setSortType } from '../../redux/slices/filterSlice';
+import { selectSortType } from '../../redux/slices/selectors';
 import { sortOptions } from '../../constants/sortOptions';
+
 import sprite from '../../assets/sprite.svg';
 import scss from './SortPopap.module.scss';
 
 const SortPopup = () => {
+  const dispatch = useDispatch();
+  const sort = useSelector(selectSortType);
   const [visiblePopup, setVisiblePopup] = useState(false);
-  const [selected, setSelected] = useState(0);
   const [isRotated, setIsRotated] = useState(false);
   const popupRef = useRef();
 
-  const sortName = sortOptions[selected].name;
-
-  const onClickListItem = (index) => {
-    setSelected(index);
+  const onClickListItem = (value) => {
+    dispatch(setSortType(value));
     setVisiblePopup(false);
     setIsRotated(false);
   };
@@ -49,7 +52,7 @@ const SortPopup = () => {
         </svg>
 
         <b>Сортування за:</b>
-        <span onClick={togglePopup}>{sortName}</span>
+        <span onClick={togglePopup}>{sort.name}</span>
       </div>
       {visiblePopup && (
         <div className={scss.sortPopap}>
@@ -57,8 +60,8 @@ const SortPopup = () => {
             {sortOptions.map((option, index) => (
               <li
                 key={index}
-                onClick={() => onClickListItem(index)}
-                className={selected === index ? scss.active : ''}
+                onClick={() => onClickListItem(option)}
+                className={sort.name === option.name ? scss.active : ''}
               >
                 {option.name}
               </li>

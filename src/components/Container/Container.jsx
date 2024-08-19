@@ -3,8 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   selectPizzas,
   selectIsLoading,
-  selectFilter,
+  // selectFilter,
   selectCategoryId,
+  selectSortType,
 } from '../../redux/slices/selectors';
 import { fetchPizzas } from '../../redux/slices/operations';
 
@@ -22,6 +23,7 @@ export const Container = () => {
   const isloading = useSelector(selectIsLoading);
   // const filterSearch = useSelector(selectFilter);
   const categoryId = useSelector(selectCategoryId);
+  const sortType = useSelector(selectSortType);
   const dispatch = useDispatch();
 
   // useEffect(() => {
@@ -30,9 +32,11 @@ export const Container = () => {
 
   useEffect(() => {
     const category = categoryId > 0 ? `category=${categoryId}` : '';
+    const order = sortType.value.includes('-') ? 'order=desc' : 'order=asc';
+    const sortBy = sortType.value.replace('-', '');
 
-    dispatch(fetchPizzas({ category }));
-  }, [categoryId, dispatch]);
+    dispatch(fetchPizzas({ category, order, sortBy }));
+  }, [categoryId, sortType, dispatch]);
 
   return (
     <div className={scss.container}>
