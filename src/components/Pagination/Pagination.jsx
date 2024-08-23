@@ -26,6 +26,7 @@ const Pagination = () => {
       pageCount={pageCount}
       forcePage={page - 1}
       renderOnZeroPageCount={null}
+      activeClassName={scss.selected}
     />
   );
 };
