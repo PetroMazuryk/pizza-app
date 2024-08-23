@@ -3,11 +3,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   selectPizzas,
   selectIsLoading,
-  // selectFilter,
+  selectFilter,
   selectCategoryId,
   selectSortType,
+  selectPage,
 } from '../../redux/slices/selectors';
-import { fetchPizzas } from '../../redux/slices/operations';
+import {
+  fetchPizzas,
+  fetchPizzasByCategory,
+} from '../../redux/slices/operations';
 
 import Categories from '../Categories/Categories';
 import PizzaList from '../PizzaList/PizzaList';
@@ -21,9 +25,10 @@ import scss from './Container.module.scss';
 export const Container = () => {
   const items = useSelector(selectPizzas);
   const isloading = useSelector(selectIsLoading);
-  // const filterSearch = useSelector(selectFilter);
+  const filterSearch = useSelector(selectFilter);
   const categoryId = useSelector(selectCategoryId);
   const sortType = useSelector(selectSortType);
+  const page = useSelector(selectPage);
   const dispatch = useDispatch();
 
   // useEffect(() => {
@@ -35,8 +40,16 @@ export const Container = () => {
     const order = sortType.value.includes('-') ? 'order=desc' : 'order=asc';
     const sortBy = sortType.value.replace('-', '');
 
-    dispatch(fetchPizzas({ category, order, sortBy }));
-  }, [categoryId, sortType, dispatch]);
+    dispatch(fetchPizzasByCategory({ category, order, sortBy }));
+  }, [categoryId, dispatch, sortType]);
+
+  useEffect(() => {
+    const category = categoryId > 0 ? `category=${categoryId}` : '';
+    const order = sortType.value.includes('-') ? 'order=desc' : 'order=asc';
+    const sortBy = sortType.value.replace('-', '');
+
+    dispatch(fetchPizzas({ category, order, sortBy, page }));
+  }, [categoryId, sortType, page, dispatch]);
 
   return (
     <div className={scss.container}>
@@ -45,13 +58,12 @@ export const Container = () => {
         <Categories />
         <SortPopup />
       </div>
-
       {isloading ? (
         [...new Array(6)].map((_, index) => <Skeleton key={index} />)
       ) : (
         <PizzaList items={items} />
       )}
-      <Pagination />
+      {!filterSearch && <Pagination />}
     </div>
   );
 };
