@@ -3,28 +3,12 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = import.meta.env.VITE_API_TEST;
 
-// export const fetchPizzas = createAsyncThunk(
-//   'pizzas/fetchAll',
-//   async (filterSearch, thunkAPI) => {
-//     try {
-//       const { data } = await axios.get('/items', {
-//         params: {
-//           search: filterSearch || '',
-//         },
-//       });
-//       return data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
-
 export const fetchPizzas = createAsyncThunk(
   'pizzas/fetchAll',
-  async ({ category, order, sortBy, page }, thunkAPI) => {
+  async ({ category, order, sortBy, page, search }, thunkAPI) => {
     try {
       const { data } = await axios.get(
-        `/items?${category}&sortBy=${sortBy}&${order}&page=${page}&limit=6`
+        `/items?${category}&sortBy=${sortBy}&${order}&page=${page}&limit=6&${search}`
       );
 
       return data;

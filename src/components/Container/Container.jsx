@@ -31,10 +31,6 @@ export const Container = () => {
   const page = useSelector(selectPage);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(fetchPizzas(filterSearch));
-  // }, [dispatch, filterSearch]);
-
   useEffect(() => {
     const category = categoryId > 0 ? `category=${categoryId}` : '';
     const order = sortType.value.includes('-') ? 'order=desc' : 'order=asc';
@@ -47,9 +43,10 @@ export const Container = () => {
     const category = categoryId > 0 ? `category=${categoryId}` : '';
     const order = sortType.value.includes('-') ? 'order=desc' : 'order=asc';
     const sortBy = sortType.value.replace('-', '');
+    const search = filterSearch ? `search=${filterSearch}` : '';
 
-    dispatch(fetchPizzas({ category, order, sortBy, page }));
-  }, [categoryId, sortType, page, dispatch]);
+    dispatch(fetchPizzas({ category, order, sortBy, page, search }));
+  }, [categoryId, sortType, page, filterSearch, dispatch]);
 
   return (
     <div className={scss.container}>
