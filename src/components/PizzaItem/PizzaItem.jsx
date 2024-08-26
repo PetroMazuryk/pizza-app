@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import clsx from 'clsx';
+import { typeOptions } from '../../constants/typeOptions';
+
 import scss from './PizzaItem.module.scss';
 
 const PizzaItem = ({ imageUrl, title, price, sizes, types }) => {
   const [activeType, setActiveType] = useState(0);
   const [activeSize, setActiveSize] = useState(0);
 
-  const typeNames = ['тонке', 'традиційне'];
+  // const typeNames = ['тонке', 'традиційне'];
 
   return (
     <div className={scss.wrapper}>
@@ -24,7 +26,7 @@ const PizzaItem = ({ imageUrl, title, price, sizes, types }) => {
                 [scss.active]: activeType === typeId,
               })}
             >
-              {typeNames[typeId]}
+              {typeOptions[typeId]}
             </li>
           ))}
         </ul>
