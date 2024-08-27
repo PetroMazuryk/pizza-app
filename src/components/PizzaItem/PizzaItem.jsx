@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import clsx from 'clsx';
 import { typeOptions } from '../../constants/typeOptions';
+import pizzaDefault from '../../assets/pizza-default.jpg';
 
 import scss from './PizzaItem.module.scss';
 
@@ -8,12 +9,19 @@ const PizzaItem = ({ imageUrl, title, price, sizes, types }) => {
   const [activeType, setActiveType] = useState(0);
   const [activeSize, setActiveSize] = useState(0);
 
-  // const typeNames = ['тонке', 'традиційне'];
+  const handleImageError = (event) => {
+    event.target.src = pizzaDefault;
+  };
 
   return (
     <div className={scss.wrapper}>
       <div className={scss.wrapperImg}>
-        <img className={scss.img} src={imageUrl} alt={title} />
+        <img
+          className={scss.img}
+          src={imageUrl || pizzaDefault}
+          alt={title}
+          onError={handleImageError}
+        />
       </div>
       <div className={scss.title}>{title}</div>
       <div className={scss.selector}>
