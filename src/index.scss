@@ -8,6 +8,7 @@
   --bg-btn-active: #beafaf;
   --bg-btn-accent: #282828;
   --bg-container: #f8f5f5;
+  --bg-btn-main: #f02727;
   --btn-text-accent: #fff;
 
   --text-shadow: 4px 4px 5px #808080, 2px 2px 1px #ff0000;
@@ -62,4 +63,5 @@ img {
 button {
   border: none;
   cursor: pointer;
+  outline: none;
 }
