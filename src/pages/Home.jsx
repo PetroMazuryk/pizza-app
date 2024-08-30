@@ -1,4 +1,64 @@
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  selectPizzas,
+  selectIsLoading,
+  selectFilter,
+  selectCategoryId,
+  selectSortType,
+  selectPage,
+} from '../redux/slices/selectors';
+import { fetchPizzas, fetchPizzasByCategory } from '../redux/slices/operations';
+
+import Categories from '../components/Categories/Categories';
+import PizzaList from '../components/PizzaList/PizzaList';
+import Skeleton from '../components/Skeleton/Skeleton';
+
+import SortPopup from '../components/SortPopap/SortPopap';
+import Pagination from '../components/Pagination/Pagination';
+
+import scss from './Home.module.scss';
+
 const Home = () => {
-  return <div>Home</div>;
+  const items = useSelector(selectPizzas);
+  const isloading = useSelector(selectIsLoading);
+  const filterSearch = useSelector(selectFilter);
+  const categoryId = useSelector(selectCategoryId);
+  const sortType = useSelector(selectSortType);
+  const page = useSelector(selectPage);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const category = categoryId > 0 ? `category=${categoryId}` : '';
+    const order = sortType.value.includes('-') ? 'order=desc' : 'order=asc';
+    const sortBy = sortType.value.replace('-', '');
+
+    dispatch(fetchPizzasByCategory({ category, order, sortBy }));
+  }, [categoryId, dispatch, sortType]);
+
+  useEffect(() => {
+    const category = categoryId > 0 ? `category=${categoryId}` : '';
+    const order = sortType.value.includes('-') ? 'order=desc' : 'order=asc';
+    const sortBy = sortType.value.replace('-', '');
+    const search = filterSearch ? `search=${filterSearch}` : '';
+
+    dispatch(fetchPizzas({ category, order, sortBy, page, search }));
+  }, [categoryId, sortType, page, filterSearch, dispatch]);
+
+  return (
+    <div className={scss.container}>
+      <div className={scss.wrapper}>
+        <Categories />
+        <SortPopup />
+      </div>
+      {isloading ? (
+        [...new Array(6)].map((_, index) => <Skeleton key={index} />)
+      ) : (
+        <PizzaList items={items} />
+      )}
+      {!filterSearch && <Pagination />}
+    </div>
+  );
 };
+
 export default Home;
