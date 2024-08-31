@@ -1,3 +1,15 @@
+.pizzaTitle {
+  font-style: normal;
+  font-size: 24px;
+  font-weight: 700;
+
+  letter-spacing: 0.01em;
+  color: var(--bg-btn-accent);
+  text-shadow: var(--text-shadow);
+  margin-bottom: 14px;
+  text-align: center;
+}
+
 .wrapper {
   display: flex;
   justify-content: center;
@@ -7,12 +19,20 @@
 }
 
 @media screen and (min-width: 768px) {
+  .pizzaTitle {
+    font-size: 30px;
+  }
+
   .wrapper {
     gap: 42px;
   }
 }
 
 @media screen and (min-width: 1200px) {
+  .pizzaTitle {
+    font-size: 34px;
+  }
+
   .wrapper {
     max-width: 1400px;
   }
