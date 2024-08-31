@@ -8,9 +8,10 @@
   margin-right: auto;
   background-color: var(--bg-container);
 }
-
-.errorImg {
+.imgThumb {
+  border-radius: 50px;
   margin-bottom: 30px;
+  overflow: hidden;
 }
 
 .errorTitle {
@@ -26,17 +27,16 @@
   font-weight: 700;
   text-align: center;
   padding: 10px 20px;
-  margin-bottom: 30px;
   border-radius: 100px;
   border: 1px solid transparent;
   color: var(--btn-text-accent);
   background-color: var(--bg-btn-main);
   transition: var(--transition);
 
-  @media screen and (min-width: 768px) {
-    width: 200px;
-    font-size: 22px;
-    padding: 12px 32px;
+  &:hover {
+    background: transparent;
+    color: var(--bg-btn-main);
+    border: 1px solid var(--bg-btn-main);
   }
 }
 

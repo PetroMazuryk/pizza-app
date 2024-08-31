@@ -46,7 +46,7 @@ const Home = () => {
   }, [categoryId, sortType, page, filterSearch, dispatch]);
 
   return (
-    <div className={scss.container}>
+    <>
       <div className={scss.wrapper}>
         <Categories />
         <SortPopup />
@@ -57,7 +57,7 @@ const Home = () => {
         <PizzaList items={items} />
       )}
       {!filterSearch && <Pagination />}
-    </div>
+    </>
   );
 };
 

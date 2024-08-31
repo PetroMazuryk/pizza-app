@@ -5,11 +5,9 @@ import scss from './NotFoundComponent.module.scss';
 const NotFoundComponent = () => {
   return (
     <div className={scss.errorWrapper}>
-      <img
-        className={scss.errorImg}
-        src={notFoundImg}
-        alt="error bad request"
-      />
+      <div className={scss.imgThumb}>
+        <img src={notFoundImg} alt="error bad request" />
+      </div>
       <h2 className={scss.errorTitle}>Нічого не було знайдено</h2>
 
       <NavLink className={scss.backLink} to="/">
