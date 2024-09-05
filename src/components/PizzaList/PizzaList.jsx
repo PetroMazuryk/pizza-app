@@ -10,6 +10,7 @@ import { categoryOptions } from '../../constants/categoryOptions';
 
 import Skeleton from '../Skeleton/Skeleton';
 import PizzaItem from '../PizzaItem/PizzaItem';
+import notFound from '../../assets/notFound.webp';
 import scss from './PizzaList.module.scss';
 
 const PizzaList = () => {
@@ -38,6 +39,9 @@ const PizzaList = () => {
     <>
       <h2 className={scss.pizzaTitle}>{categoryOptions[categoryId]}</h2>
       <ul className={scss.wrapper}>{isLoading ? skeletons : pizzas}</ul>
+      {filteredItems.length === 0 && (
+        <img className={scss.notFound} src={notFound} alt="not found" />
+      )}
     </>
   );
 };
