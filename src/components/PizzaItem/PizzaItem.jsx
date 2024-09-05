@@ -5,7 +5,8 @@ import pizzaDefault from '../../assets/pizza-default.jpg';
 
 import scss from './PizzaItem.module.scss';
 
-const PizzaItem = ({ imageUrl, title, price, sizes, types }) => {
+const PizzaItem = ({ item }) => {
+  const { imageUrl, title, types, sizes, price } = item;
   const [activeType, setActiveType] = useState(0);
   const [activeSize, setActiveSize] = useState(0);
 
@@ -14,7 +15,7 @@ const PizzaItem = ({ imageUrl, title, price, sizes, types }) => {
   };
 
   return (
-    <div className={scss.wrapper}>
+    <li className={scss.wrapper}>
       <div className={scss.wrapperImg}>
         <img
           className={scss.img}
@@ -56,7 +57,7 @@ const PizzaItem = ({ imageUrl, title, price, sizes, types }) => {
         <div> {price} грн</div>
         <button>Додати</button>
       </div>
-    </div>
+    </li>
   );
 };
 

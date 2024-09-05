@@ -1,4 +1,5 @@
 export const selectPizzas = (state) => state.pizzas.items;
+export const selectAllItems = (state) => state.pizzas.allItems;
 export const selectIsLoading = (state) => state.pizzas.isLoading;
 export const selectError = (state) => state.pizzas.error;
 

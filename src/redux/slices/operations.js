@@ -5,10 +5,10 @@ axios.defaults.baseURL = import.meta.env.VITE_API_TEST;
 
 export const fetchPizzas = createAsyncThunk(
   'pizzas/fetchAll',
-  async ({ category, order, sortBy, page, search }, thunkAPI) => {
+  async ({ category, order, sortBy, page }, thunkAPI) => {
     try {
       const { data } = await axios.get(
-        `/items?${category}&sortBy=${sortBy}&${order}&page=${page}&limit=6&${search}`
+        `/items?${category}&sortBy=${sortBy}&${order}&page=${page}&limit=6`
       );
 
       return data;

@@ -30,6 +30,7 @@ const Search = () => {
       } else {
         setError('');
         dispatch(changeFilterSearch(str));
+        console.log('search');
       }
     }, 300),
     []

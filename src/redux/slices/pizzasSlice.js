@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchPizzas } from './operations';
+import { fetchPizzas, fetchPizzasByCategory } from './operations';
 
 const initialState = {
   items: [],
+  allItems: [],
   isLoading: false,
   error: null,
 };
@@ -27,7 +28,15 @@ export const pizzasSlice = createSlice({
         state.error = null;
         state.items = action.payload;
       })
-      .addCase(fetchPizzas.rejected, handleRejected);
+      .addCase(fetchPizzas.rejected, handleRejected)
+
+      .addCase(fetchPizzasByCategory.pending, handlePending)
+      .addCase(fetchPizzasByCategory.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.allItems = action.payload;
+        state.error = null;
+      })
+      .addCase(fetchPizzasByCategory.rejected, handleRejected);
   },
 });
 
