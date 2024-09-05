@@ -10,14 +10,11 @@ import {
 } from '../redux/slices/selectors';
 import { fetchPizzas, fetchPizzasByCategory } from '../redux/slices/operations';
 
-import Categories from '../components/Categories/Categories';
+import HomeBar from '../components/HomeBar/HomeBar';
 import PizzaList from '../components/PizzaList/PizzaList';
 import Skeleton from '../components/Skeleton/Skeleton';
 
-import SortPopup from '../components/SortPopap/SortPopap';
 import Pagination from '../components/Pagination/Pagination';
-
-import scss from './Home.module.scss';
 
 const Home = () => {
   const items = useSelector(selectPizzas);
@@ -47,10 +44,7 @@ const Home = () => {
 
   return (
     <>
-      <div className={scss.wrapper}>
-        <Categories />
-        <SortPopup />
-      </div>
+      <HomeBar />
       {isloading ? (
         [...new Array(6)].map((_, index) => <Skeleton key={index} />)
       ) : (
