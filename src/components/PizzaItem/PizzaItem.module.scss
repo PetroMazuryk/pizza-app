@@ -1,18 +1,113 @@
 .wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-align: center;
-
+  position: relative;
   width: 280px;
-
-  padding: 20px 16px;
-  border-radius: 16px;
+  height: 500px;
   background-color: var(--bg-card);
-  transition: var(--transition);
+  border-radius: 20px;
+  overflow: hidden;
 
-  &:hover .img {
-    transform: scale(1.05);
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-content);
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.6s ease-in-out;
+  }
+
+  &:hover:before {
+    clip-path: circle(300px at 80% -20%);
+  }
+
+  &:after {
+    font-size: 5em;
+    font-weight: 800;
+    color: var(--bg-pizza);
+    position: absolute;
+    content: 'Pizza';
+    top: 44%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  & .wrapperImg {
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    width: 100%;
+
+    transition: 0.6s;
+  }
+
+  &:hover .wrapperImg {
+    top: 6px;
+    left: 130px;
+    transform: translateY(0%);
+    width: 50%;
+  }
+
+  & .contentBox {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    bottom: 100px;
+    padding: 15px;
+    text-align: center;
+    transition: 1s;
+    z-index: 10;
+  }
+
+  &:hover .contentBox {
+    height: 180px;
+  }
+
+  & .wrapperPrice {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  &:hover .wrapperPrice {
+    opacity: 1;
+    transform: translateY(0px);
+    transition-delay: 0.6s;
+  }
+
+  &:hover .listTypes {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.5s;
+  }
+
+  &:hover .listSizes {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.6s;
+  }
+
+  & .listTypes {
+    padding-bottom: 14px;
+  }
+
+  & .listSizes {
+    display: flex;
+    flex-direction: row;
+  }
+
+  & .ingredients {
+    bottom: 90px;
+    opacity: 1;
+    transform: translateY(50px);
+  }
+
+  &:hover .ingredients {
+    opacity: 0;
+    transform: translateY(550px);
+    transition-delay: 0.3s;
   }
 }
 
@@ -23,16 +118,10 @@
   border-radius: 8px;
 }
 
-.img {
-  display: block;
-  width: 100%;
-  height: auto;
-  transition: transform 250ms linear;
-}
-
 .title {
   font-size: 30px;
   font-weight: 900;
+  margin-top: 30px;
   margin-bottom: 12px;
   color: var(--color-green);
   text-shadow: var(--text-shadow);
@@ -45,14 +134,21 @@
   padding: 10px;
   margin-bottom: 12px;
   border-radius: 12px;
-  background-color: #bf8257;
+  background-color: var(--bg-list);
+  opacity: 0;
+  visibility: hidden;
 }
 
 .itemTypes {
   padding: 6px;
   border-radius: 12px;
-  background-color: #f0f8ff;
+  background-color: var(--btn-text-accent);
   width: 98px;
+
+  &:hover {
+    background-color: var(--bg-btn-active);
+    cursor: pointer;
+  }
 
   &.active {
     background-color: var(--bg-btn-active);
@@ -68,13 +164,20 @@
   margin-bottom: 12px;
   padding: 10px;
   border-radius: 12px;
-  background-color: #bf8257;
+  background-color: var(--bg-list);
+  opacity: 0;
+  visibility: hidden;
 }
 
 .itemSizes {
   padding: 6px;
-  background-color: aliceblue;
+  background-color: var(--btn-text-accent);
   border-radius: 10px;
+
+  &:hover {
+    background-color: var(--bg-btn-active);
+    cursor: pointer;
+  }
 
   &.active {
     background-color: var(--bg-btn-active);
@@ -85,6 +188,48 @@
 
 .wrapperPrice {
   display: flex;
+  align-items: center;
   justify-content: center;
+
   gap: 20px;
+}
+
+.priceText {
+  font-style: normal;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.015em;
+  color: var(--bg-btn-accent);
+  margin-right: 4px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 22px;
+  }
+}
+
+.addBtn {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  display: flex;
+  padding: 10px 24px;
+  gap: 8px;
+  border-radius: 12px;
+  transition: 0.5s;
+  background: var(--btn-text-accent);
+  border: 1px solid var(--bg-content);
+  color: var(--bg-content);
+
+  &:hover {
+    background: var(--bg-content);
+    border: 1px solid var(--bg-content);
+    color: var(--btn-text-accent);
+  }
+}
+
+.ingredients {
+  position: absolute;
+  display: inline-block;
+  text-align: center;
+  padding: 6px;
 }
