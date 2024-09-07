@@ -24,7 +24,19 @@ const FullPizza = () => {
   }, [id]);
 
   if (!pizzaItem) {
-    return <div>Sry we cant get information about this pizza, try again!</div>;
+    return (
+      <div
+        style={{
+          fontSize: 34,
+          fontWeight: 800,
+          textShadow: '4px 4px 5px #808080, 2px 2px 1px #ff0000',
+          marginTop: 100,
+          textAlign: 'center',
+        }}
+      >
+        На жаль, ми не можемо отримати інформацію про цю піцу, спробуйте ще раз!
+      </div>
+    );
   }
 
   return <FullPizzaComponent item={pizzaItem} />;
