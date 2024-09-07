@@ -1,12 +1,14 @@
 import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
 import { typeOptions } from '../../constants/typeOptions';
 import pizzaDefault from '../../assets/pizza-default.jpg';
+import sprite from '../../assets/sprite.svg';
 
 import scss from './PizzaItem.module.scss';
 
 const PizzaItem = ({ item }) => {
-  const { imageUrl, title, types, sizes, price, ingredients } = item;
+  const { imageUrl, title, types, sizes, price, ingredients, id } = item;
 
   const [count, setCount] = useState(0);
   const [activeType, setActiveType] = useState(0);
@@ -24,7 +26,7 @@ const PizzaItem = ({ item }) => {
 
   return (
     <li className={scss.wrapper}>
-      <div className={scss.wrapperImg}>
+      <NavLink className={scss.wrapperImg} to={`item/${id}`}>
         <img
           className={scss.img}
           src={imageUrl || pizzaDefault}
@@ -32,7 +34,7 @@ const PizzaItem = ({ item }) => {
           onError={handleImageError}
           loading="lazy"
         />
-      </div>
+      </NavLink>
       <div className={scss.contentBox}>
         <div className={scss.title}>{title}</div>
         <div className={scss.selector}>
@@ -66,6 +68,9 @@ const PizzaItem = ({ item }) => {
         <div className={scss.wrapperPrice}>
           <div className={scss.priceText}> {price} грн</div>
           <button className={scss.addBtn} onClick={handleAddItem}>
+            <svg className={scss.svgBtn} width="12" height="12">
+              <use href={`${sprite}#icon-plus`}></use>
+            </svg>
             Додати
             <i>{count > 0 ? count : ' '}</i>
           </button>
