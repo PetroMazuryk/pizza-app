@@ -4,8 +4,7 @@
 }
 
 .searchInput {
-  width: 360px;
-  outline: none;
+  width: 310px;
   padding: 12px 20px 12px 34px;
   border-radius: 16px;
   border: 1px solid var(--color-orange);
@@ -47,5 +46,17 @@
 
   &:hover {
     stroke: red;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .searchInput {
+    width: 200px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .searchInput {
+    width: 310px;
   }
 }

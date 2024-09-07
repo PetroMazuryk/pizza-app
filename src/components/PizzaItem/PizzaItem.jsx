@@ -7,11 +7,19 @@ import scss from './PizzaItem.module.scss';
 
 const PizzaItem = ({ item }) => {
   const { imageUrl, title, types, sizes, price, ingredients } = item;
+
+  const [count, setCount] = useState(0);
   const [activeType, setActiveType] = useState(0);
   const [activeSize, setActiveSize] = useState(0);
 
   const handleImageError = (event) => {
     event.target.src = pizzaDefault;
+  };
+
+  const handleCountIncrement = () => setCount((prev) => prev + 1);
+
+  const handleAddItem = () => {
+    handleCountIncrement();
   };
 
   return (
@@ -57,7 +65,10 @@ const PizzaItem = ({ item }) => {
         </div>
         <div className={scss.wrapperPrice}>
           <div className={scss.priceText}> {price} грн</div>
-          <button className={scss.addBtn}>Додати</button>
+          <button className={scss.addBtn} onClick={handleAddItem}>
+            Додати
+            <i>{count > 0 ? count : ' '}</i>
+          </button>
         </div>
       </div>
       <p className={scss.ingredients}>{ingredients}</p>

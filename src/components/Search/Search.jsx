@@ -17,8 +17,8 @@ const Search = () => {
 
   const schema = Joi.string().min(3).max(26).messages({
     'string.empty': 'Поле не може бути порожнім',
-    'string.min': 'Назва повинна містити щонайменше 3 символи',
-    'string.max': 'Назва не може перевищувати 26 символів',
+    'string.min': 'Назва  від 3 символів',
+    'string.max': 'Назва до 20 символів',
   });
 
   const updateSearchValue = useCallback(
