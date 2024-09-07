@@ -43,6 +43,41 @@
   color: var(--bg-btn-accent);
 }
 
+.linkCartWarpper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-cart);
+  border-radius: 30px;
+  padding: 10px 26px;
+  transition: var(--transition);
+  margin: 10px;
+
+  &:hover {
+    background: var(--bg-cart-hover);
+    transform: scale(1.05);
+  }
+}
+
+.cartText {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--btn-text-accent);
+}
+
+.cartDelimiter {
+  width: 3px;
+  height: 26px;
+  background: rgba(255, 255, 255, 0.4);
+  margin: 0 8px;
+}
+
+.cartIcon {
+  fill: var(--btn-text-accent);
+  margin-right: 8px;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     flex-direction: row;
@@ -50,12 +85,13 @@
   }
 
   .logoWrapper {
-    min-width: 378px;
-    gap: 30px;
+    width: 378px;
+    margin-right: 8px;
+    gap: 2px;
   }
 
   .logoName {
-    font-size: 22px;
+    font-size: 20px;
     display: flex;
     text-align: center;
     justify-content: center;
@@ -63,7 +99,7 @@
   }
 
   .logoInfo {
-    padding: 12px 28px;
+    padding: 8px 18px;
     border-radius: 32px;
     max-width: 100%;
   }
@@ -74,6 +110,10 @@
 }
 
 @media screen and (min-width: 1200px) {
+  .logoWrapper {
+    gap: 40px;
+  }
+
   .logoInfo {
     padding: 16px 40px;
   }
