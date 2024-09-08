@@ -1,4 +1,5 @@
 import { Link, NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import logo from '../../assets/logo-pizza.png';
 import Search from '../Search/Search';
 
@@ -6,6 +7,8 @@ import sprite from '../../assets/sprite.svg';
 import scss from './Header.module.scss';
 
 const Header = () => {
+  const { items, totalPrice } = useSelector((state) => state.cart);
+
   return (
     <header className={scss.header}>
       <div className={scss.container}>
@@ -27,13 +30,13 @@ const Header = () => {
         </div>
         <Search />
         <NavLink className={scss.linkCartWarpper} to="/cart">
-          <p className={scss.cartText}> 525 грн.</p>
+          <p className={scss.cartText}> {totalPrice} грн.</p>
           <div className={scss.cartDelimiter}></div>
           <svg className={scss.cartIcon} width="18" height="18">
             <use href={`${sprite}#icon-cart`} />
           </svg>
 
-          <p className={scss.cartText}> 22</p>
+          <p className={scss.cartText}> {items.length}</p>
         </NavLink>
       </div>
     </header>

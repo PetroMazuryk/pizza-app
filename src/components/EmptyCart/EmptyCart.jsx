@@ -18,7 +18,7 @@ const EmptyCart = () => {
         <img className={scss.cartImg} src={emptyImg} alt="Empty cart" />
 
         <NavLink className={scss.cartBtn} to="/">
-          Повернутись назад
+          Повернутися назад
         </NavLink>
       </div>
     </div>
