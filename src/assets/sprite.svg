@@ -8,8 +8,6 @@
 </path>
 </symbol>
         
-       
-
 <symbol id="icon-arrow-up" viewBox="0 0 32 32">
 <path d="M16 1l-15 15h9v16h12v-16h9z"></path>
 </symbol>
@@ -58,11 +56,19 @@
 <path d="M12.010 8h-2.010v-2.010c0-0.547-0.443-0.99-0.99-0.99h-0.020c-0.547 0-0.99 0.443-0.99 0.99v2.010h-2.010c-0.547 0-0.99 0.443-0.99 0.99v0.020c0 0.547 0.443 0.99 0.99 0.99h2.010v2.010c0 0.547 0.443 0.99 0.99 0.99h0.020c0.547 0 0.99-0.443 0.99-0.99v-2.010h2.010c0.547 0 0.99-0.443 0.99-0.99v-0.020c-0-0.547-0.443-0.99-0.99-0.99z"></path>
 </symbol>
 
-
-
 <symbol id="icon-arrow-left" viewBox="0 0 32 32">
 <path d="M1 16l15 15v-9h16v-12h-16v-9z"></path>
 </symbol>
 
-     </defs>
+<symbol id="icon-circle-plus" viewBox="0 0 32 32">
+<path fill="#fff" style="fill: var(--color1, #fff); stroke: var(--color2, #fe5f1e)" stroke="#fe5f1e" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2" d="M31 16c0 8.284-6.716 15-15 15s-15-6.716-15-15c0-8.284 6.716-15 15-15s15 6.716 15 15z"></path>
+<path fill="#eb5a1e" style="fill: var(--color3, #eb5a1e)" d="M19.84 15.040h-2.88v-2.88c0-0.53-0.43-0.96-0.96-0.96s-0.96 0.43-0.96 0.96v2.88h-2.88c-0.53 0-0.96 0.43-0.96 0.96s0.43 0.96 0.96 0.96h2.88v2.88c0 0.53 0.43 0.96 0.96 0.96s0.96-0.43 0.96-0.96v-2.88h2.88c0.53 0 0.96-0.43 0.96-0.96s-0.43-0.96-0.96-0.96z"></path>
+</symbol>
+
+<symbol id="icon-circle-minus" viewBox="0 0 32 32">
+<path fill="#fff" style="fill: var(--color1, #fff); stroke: var(--color2, #fe5f1e)" stroke="#fe5f1e" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2" d="M31 16c0 8.284-6.716 15-15 15s-15-6.716-15-15c0-8.284 6.716-15 15-15s15 6.716 15 15z"></path>
+<path fill="#fe5f1e" style="fill: var(--color2, #fe5f1e)" d="M15.040 15.040h4.8c0.53 0 0.96 0.43 0.96 0.96s-0.43 0.96-0.96 0.96h-7.68c-0.53 0-0.96-0.43-0.96-0.96s0.43-0.96 0.96-0.96h2.88z"></path>
+</symbol>
+
+</defs>
 </svg>

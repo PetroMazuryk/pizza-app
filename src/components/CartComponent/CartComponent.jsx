@@ -1,4 +1,6 @@
 import { NavLink } from 'react-router-dom';
+import CartItem from '../CartItem/CartItem';
+
 import sprite from '../../assets/sprite.svg';
 
 import scss from './CartComponent.module.scss';
@@ -24,7 +26,7 @@ const CartComponent = () => {
       </div>
 
       <ul>
-        <li>Cart</li>
+        <CartItem />
       </ul>
 
       <div className={scss.totalInfoWrapper}>

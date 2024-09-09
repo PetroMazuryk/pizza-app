@@ -1,13 +1,14 @@
 .container {
   width: 100%;
-  margin: 36px auto;
+  margin: 16px auto;
 }
 
 .topBlockWrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--color-orange);
 }
 
 .topBlockTitle {
@@ -36,7 +37,7 @@
   align-items: center;
   justify-content: center;
   gap: 2px;
-  padding: 10px 12px;
+  padding: 6px 12px;
   background: transparent;
   border: 1px solid var(--color-light-gray);
   border-radius: 30px;
@@ -139,11 +140,11 @@
 
 @media screen and (min-width: 768px) {
   .topBlockWrapper {
-    margin-bottom: 30px;
+    margin-top: 30px;
   }
 
   .topBlockTitle {
-    gap: 17px;
+    gap: 18px;
   }
 
   .cartIcon {
@@ -196,6 +197,6 @@
 @media screen and (min-width: 1200px) {
   .container {
     max-width: 860px;
-    margin: 94px auto;
+    margin: 54px auto;
   }
 }

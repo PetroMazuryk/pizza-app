@@ -1,0 +1,149 @@
+.cartItemWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 10px;
+  box-shadow: var(--box-shadow);
+}
+
+.cartWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cartItemImg {
+  width: 48px;
+  height: 48px;
+  margin-right: 8px;
+}
+
+.cartItemDesc {
+  min-width: 120px;
+}
+
+.cartItemTitle {
+  font-style: normal;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 3px;
+  color: var(--bg-btn-accent);
+}
+
+.cartItemText {
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-light-gray);
+}
+
+.priceWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.countWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cartIcon {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  transition: var(--transition);
+
+  &:hover {
+    transform: var(--transform);
+  }
+}
+
+.countText {
+  font-style: normal;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 14px;
+  color: var(--bg-btn-accent);
+}
+
+.cartPriceText {
+  font-style: normal;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--bg-btn-accent);
+}
+
+.deleteIcon {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  fill: var(--color-light-gray);
+  transition: var(--transition);
+
+  &:hover {
+    transform: var(--transform);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .cartItemWrapper {
+    padding-top: 10px;
+  }
+
+  .cartItemImg {
+    width: 80px;
+    height: 80px;
+    margin-right: 15px;
+  }
+
+  .cartItemDesc {
+    min-width: 280px;
+  }
+
+  .cartItemTitle {
+    font-size: 22px;
+    line-height: 27px;
+  }
+
+  .cartItemText {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .priceWrapper {
+    flex: 3.5;
+  }
+
+  .countWrapper {
+    flex: 3.5;
+  }
+
+  .cartIcon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .countText {
+    font-size: 22px;
+    line-height: 27px;
+  }
+
+  .cartPriceText {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .deleteIcon {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .cartItemWrapper {
+    padding-top: 16px;
+  }
+}
