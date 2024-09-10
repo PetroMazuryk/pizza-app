@@ -11,3 +11,6 @@ export const selectSortType = (state) => state.filters.sort;
 
 export const selectPage = (state) => state.filters.page;
 export const selectPageCount = (state) => state.filters.pageCount;
+
+export const selectCartItems = (state) => state.cart.items;
+export const selectTotalPrice = (state) => state.cart.totalPrice;

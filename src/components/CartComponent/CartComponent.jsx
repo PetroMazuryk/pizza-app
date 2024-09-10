@@ -1,16 +1,37 @@
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { clearItems } from '../../redux/slices/cartSlice';
+import {
+  selectCartItems,
+  selectTotalPrice,
+} from '../../redux/slices/selectors';
 import CartItem from '../CartItem/CartItem';
 
 import sprite from '../../assets/sprite.svg';
-
 import scss from './CartComponent.module.scss';
 
 const CartComponent = () => {
+  const dispatch = useDispatch();
+  const items = useSelector(selectCartItems);
+  const totalPrice = useSelector(selectTotalPrice);
+
+  const totalCount = items.reduce((sum, item) => sum + item.count, 0);
+
+  const onClickClier = () => {
+    dispatch(clearItems());
+  };
+
   return (
     <div className={scss.container}>
       <div className={scss.topBlockWrapper}>
         <div className={scss.topBlockTitle}>
-          <svg className={scss.cartIcon} width="18" height="18">
+          <svg
+            onClick={onClickClier}
+            className={scss.cartIcon}
+            width="18"
+            height="18"
+          >
             <use href={`${sprite}#icon-cart`} />
           </svg>
           <h2 className={scss.cartTitle}>Кошик</h2>
@@ -26,16 +47,18 @@ const CartComponent = () => {
       </div>
 
       <ul>
-        <CartItem />
+        {items.map((item) => (
+          <CartItem key={item.id} item={item} />
+        ))}
       </ul>
 
       <div className={scss.totalInfoWrapper}>
         <p className={scss.totalInfoText}>
-          Всього піц: <span>totalCount шт.</span>
+          Всього піц: <span>{totalCount} шт.</span>
         </p>
 
         <p className={scss.totalInfoText}>
-          Сума замовлення: <span>totalPrice грн.</span>
+          Сума замовлення: <span>{totalPrice} грн.</span>
         </p>
       </div>
 

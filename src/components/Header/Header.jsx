@@ -8,6 +8,7 @@ import scss from './Header.module.scss';
 
 const Header = () => {
   const { items, totalPrice } = useSelector((state) => state.cart);
+  const totalCount = items.reduce((sum, item) => sum + item.count, 0);
 
   return (
     <header className={scss.header}>
@@ -36,7 +37,7 @@ const Header = () => {
             <use href={`${sprite}#icon-cart`} />
           </svg>
 
-          <p className={scss.cartText}> {items.length}</p>
+          <p className={scss.cartText}> {totalCount}</p>
         </NavLink>
       </div>
     </header>

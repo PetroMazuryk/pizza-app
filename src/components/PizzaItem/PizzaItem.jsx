@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem } from '../../redux/slices/cartSlice';
 import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
 import { typeOptions } from '../../constants/typeOptions';
@@ -10,18 +12,32 @@ import scss from './PizzaItem.module.scss';
 const PizzaItem = ({ item }) => {
   const { imageUrl, title, types, sizes, price, ingredients, id } = item;
 
-  const [count, setCount] = useState(0);
+  const dispatch = useDispatch();
+  const cartItem = useSelector((state) =>
+    state.cart.items.find((obj) => obj.id === id)
+  );
+  // const [count, setCount] = useState(0);
   const [activeType, setActiveType] = useState(0);
   const [activeSize, setActiveSize] = useState(0);
 
+  const addedCount = cartItem ? cartItem.count : 0;
   const handleImageError = (event) => {
     event.target.src = pizzaDefault;
   };
 
-  const handleCountIncrement = () => setCount((prev) => prev + 1);
+  // const handleCountIncrement = () => setCount((prev) => prev + 1);
 
   const handleAddItem = () => {
-    handleCountIncrement();
+    // handleCountIncrement();
+    const item = {
+      id,
+      title,
+      price,
+      imageUrl,
+      type: types[activeType],
+      size: sizes[activeSize],
+    };
+    dispatch(addItem(item));
   };
 
   return (
@@ -72,7 +88,8 @@ const PizzaItem = ({ item }) => {
               <use href={`${sprite}#icon-plus`}></use>
             </svg>
             Додати
-            <i>{count > 0 ? count : ' '}</i>
+            {addedCount > 0 && <i>{addedCount}</i>}
+            {/* <i>{count > 0 ? count : ' '}</i> */}
           </button>
         </div>
       </div>
