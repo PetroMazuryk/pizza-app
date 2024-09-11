@@ -14,3 +14,4 @@ export const selectPageCount = (state) => state.filters.pageCount;
 
 export const selectCartItems = (state) => state.cart.items;
 export const selectTotalPrice = (state) => state.cart.totalPrice;
+export const selectTotalCount = (state) => state.cart.totalCount;

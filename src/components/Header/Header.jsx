@@ -1,5 +1,9 @@
 import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import {
+  selectTotalPrice,
+  selectTotalCount,
+} from '../../redux/slices/selectors';
 import logo from '../../assets/logo-pizza.png';
 import Search from '../Search/Search';
 
@@ -7,8 +11,8 @@ import sprite from '../../assets/sprite.svg';
 import scss from './Header.module.scss';
 
 const Header = () => {
-  const { items, totalPrice } = useSelector((state) => state.cart);
-  const totalCount = items.reduce((sum, item) => sum + item.count, 0);
+  const totalPrice = useSelector(selectTotalPrice);
+  const totalCount = useSelector(selectTotalCount);
 
   return (
     <header className={scss.header}>
