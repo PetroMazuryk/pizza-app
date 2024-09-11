@@ -5,8 +5,10 @@ import {
   selectAllItems,
   selectIsLoading,
   selectFilter,
+  selectError,
 } from '../../redux/slices/selectors';
 import { categoryOptions } from '../../constants/categoryOptions';
+import Notification from '../../components/Notification/Notification';
 
 import Skeleton from '../Skeleton/Skeleton';
 import PizzaItem from '../PizzaItem/PizzaItem';
@@ -19,6 +21,7 @@ const PizzaList = () => {
   const allItems = useSelector(selectAllItems);
   const isLoading = useSelector(selectIsLoading);
   const searchValue = useSelector(selectFilter);
+  const error = useSelector(selectError);
 
   const normalizeValue = searchValue.toLowerCase();
   const filteredItems = allItems.filter((item) =>
@@ -37,10 +40,22 @@ const PizzaList = () => {
 
   return (
     <>
-      <h2 className={scss.pizzaTitle}>{categoryOptions[categoryId]}</h2>
-      <ul className={scss.wrapper}>{isLoading ? skeletons : pizzas}</ul>
-      {filteredItems.length === 0 && (
-        <img className={scss.notFound} src={notFound} alt="not found" />
+      {error ? (
+        <div>
+          <Notification
+            message="Вибачте, відбулася помилка !"
+            text=" Не вдалося отримати піци. Повторіть спробу пізніше !"
+            error={error}
+          ></Notification>
+        </div>
+      ) : (
+        <>
+          <h2 className={scss.pizzaTitle}>{categoryOptions[categoryId]}</h2>
+          <ul className={scss.wrapper}>{isLoading ? skeletons : pizzas}</ul>
+          {filteredItems.length === 0 && (
+            <img className={scss.notFound} src={notFound} alt="not found" />
+          )}
+        </>
       )}
     </>
   );

@@ -16,7 +16,7 @@ const PizzaItem = ({ item }) => {
   const cartItem = useSelector((state) =>
     state.cart.items.find((obj) => obj.id === id)
   );
-  // const [count, setCount] = useState(0);
+
   const [activeType, setActiveType] = useState(0);
   const [activeSize, setActiveSize] = useState(0);
 
@@ -25,10 +25,7 @@ const PizzaItem = ({ item }) => {
     event.target.src = pizzaDefault;
   };
 
-  // const handleCountIncrement = () => setCount((prev) => prev + 1);
-
   const handleAddItem = () => {
-    // handleCountIncrement();
     const item = {
       id,
       title,
@@ -89,7 +86,6 @@ const PizzaItem = ({ item }) => {
             </svg>
             Додати
             {addedCount > 0 && <i>{addedCount}</i>}
-            {/* <i>{count > 0 ? count : ' '}</i> */}
           </button>
         </div>
       </div>

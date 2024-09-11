@@ -35,7 +35,8 @@
 }
 
 .iconClose {
-  stroke: var(--bg-btn-accent);
+  stroke: var(--color-light-gray);
+
   position: absolute;
   top: 24px;
   transform: translateY(-50%);
@@ -45,7 +46,7 @@
   z-index: 9;
 
   &:hover {
-    stroke: red;
+    stroke: var(--bg-cart-hover);
   }
 }
 

@@ -5,6 +5,7 @@ import {
   selectCategoryId,
   selectSortType,
   selectPage,
+  selectError,
 } from '../redux/slices/selectors';
 import { fetchPizzas, fetchPizzasByCategory } from '../redux/slices/operations';
 
@@ -18,6 +19,7 @@ const Home = () => {
   const categoryId = useSelector(selectCategoryId);
   const sortType = useSelector(selectSortType);
   const page = useSelector(selectPage);
+  const error = useSelector(selectError);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -42,7 +44,7 @@ const Home = () => {
 
       <PizzaList />
 
-      {!searchValue && <Pagination />}
+      {!searchValue && !error && <Pagination />}
     </>
   );
 };

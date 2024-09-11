@@ -1,0 +1,34 @@
+.messageWrapper {
+  max-width: 852px;
+  margin: 20px auto;
+  padding: 12px;
+  border: 1px solid grey;
+  box-shadow: var(--box-shadow);
+  border-radius: 8px;
+}
+
+.message {
+  font-size: 20px;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 800;
+  color: brown;
+  background: #fffbd5;
+  background: -webkit-linear-gradient(to right, #eb5757, #000000);
+  background: linear-gradient(to right, #eb5757, #000000);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media screen and (min-width: 480px) {
+  .message {
+    font-size: 22px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .message {
+    font-size: 24px;
+  }
+}
