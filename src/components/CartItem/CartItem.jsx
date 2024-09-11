@@ -15,7 +15,12 @@ const CartItem = ({ item }) => {
   };
 
   const onClickMinus = () => {
-    dispatch(minusItem(id));
+    if (count > 0) {
+      dispatch(minusItem(id));
+    }
+    if (count === 1) {
+      dispatch(removeItem(id));
+    }
   };
 
   const onClickRemove = () => {
