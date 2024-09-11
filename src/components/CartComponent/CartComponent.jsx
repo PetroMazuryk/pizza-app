@@ -20,7 +20,6 @@ const CartComponent = () => {
 
   const onClickClier = () => {
     dispatch(clearItems());
-    console.log('clear');
   };
 
   return (
@@ -33,7 +32,7 @@ const CartComponent = () => {
           <h2 className={scss.cartTitle}>Кошик</h2>
         </div>
 
-        <button className={scss.trashBtn}>
+        <button onClick={onClickClier} className={scss.trashBtn}>
           <svg className={scss.trashIcon} width="18" height="18">
             <use href={`${sprite}#icon-trash`} />
           </svg>
