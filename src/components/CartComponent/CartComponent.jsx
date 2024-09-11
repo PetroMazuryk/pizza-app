@@ -20,18 +20,14 @@ const CartComponent = () => {
 
   const onClickClier = () => {
     dispatch(clearItems());
+    console.log('clear');
   };
 
   return (
     <div className={scss.container}>
       <div className={scss.topBlockWrapper}>
-        <div className={scss.topBlockTitle}>
-          <svg
-            onClick={onClickClier}
-            className={scss.cartIcon}
-            width="18"
-            height="18"
-          >
+        <div onClick={onClickClier} className={scss.topBlockTitle}>
+          <svg className={scss.cartIcon} width="18" height="18">
             <use href={`${sprite}#icon-cart`} />
           </svg>
           <h2 className={scss.cartTitle}>Кошик</h2>

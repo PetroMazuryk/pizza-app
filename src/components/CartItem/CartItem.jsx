@@ -31,7 +31,7 @@ const CartItem = ({ item }) => {
           <h3 className={scss.cartItemTitle}>{title}</h3>
           <p className={scss.cartItemText}>
             {' '}
-            {typeOptions[type]}тісто, {size} см.
+            {typeOptions[type]} тісто, {size} см.
           </p>
         </div>
       </div>
