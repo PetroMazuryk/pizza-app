@@ -49,11 +49,11 @@ const CartComponent = () => {
 
       <div className={scss.totalInfoWrapper}>
         <p className={scss.totalInfoText}>
-          Всього піц: <span>{totalCount} шт.</span>
+          Всього піц: <span className={scss.total}>{totalCount} </span>шт.
         </p>
 
         <p className={scss.totalInfoText}>
-          Сума замовлення: <span>{totalPrice} грн.</span>
+          Сума замовлення: <span className={scss.total}>{totalPrice}</span> грн.
         </p>
       </div>
 

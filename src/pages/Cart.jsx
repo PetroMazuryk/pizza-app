@@ -1,11 +1,14 @@
 import EmptyCart from '../components/EmptyCart/EmptyCart';
 import CartComponent from '../components/CartComponent/CartComponent';
+import { selectCartItems } from '../redux/slices/selectors';
+import { useSelector } from 'react-redux';
 
 const Cart = () => {
-  const cart = true;
+  const cartItems = useSelector(selectCartItems);
+
   return (
     <div>
-      <>{cart ? <CartComponent /> : <EmptyCart />}</>
+      <>{cartItems.length > 0 ? <CartComponent /> : <EmptyCart />}</>
     </div>
   );
 };

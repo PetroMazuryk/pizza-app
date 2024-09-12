@@ -11,7 +11,9 @@ const CartItem = ({ item }) => {
   const dispatch = useDispatch();
 
   const onClickPlus = () => {
-    dispatch(addItem({ id }));
+    if (count < 8) {
+      dispatch(addItem({ id }));
+    }
   };
 
   const onClickMinus = () => {
