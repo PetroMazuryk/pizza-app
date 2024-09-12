@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem } from '../../redux/slices/cartSlice';
 import { NavLink } from 'react-router-dom';
@@ -21,21 +21,47 @@ const PizzaItem = ({ item }) => {
   const [activeSize, setActiveSize] = useState(0);
 
   const addedCount = cartItem ? cartItem.count : 0;
-  const handleImageError = (event) => {
-    event.target.src = pizzaDefault;
-  };
 
-  const handleAddItem = () => {
+  const handleImageError = useCallback((event) => {
+    event.target.src = pizzaDefault;
+  }, []);
+
+  const fullPrice = useMemo(() => {
+    let basePrice = price;
+
+    if (types[activeType] === 1) {
+      basePrice += 30;
+    }
+
+    if (sizes[activeSize] === 30) {
+      return Math.round(basePrice * 1.3);
+    } else if (sizes[activeSize] === 40) {
+      return Math.round(basePrice * 1.6);
+    }
+    return basePrice;
+  }, [activeType, activeSize, price, types, sizes]);
+
+  const handleAddItem = useCallback(() => {
     const item = {
       id,
       title,
-      price,
       imageUrl,
+      price: fullPrice,
       type: types[activeType],
       size: sizes[activeSize],
     };
     dispatch(addItem(item));
-  };
+  }, [
+    id,
+    title,
+    imageUrl,
+    fullPrice,
+    types,
+    activeType,
+    sizes,
+    activeSize,
+    dispatch,
+  ]);
 
   return (
     <li className={scss.wrapper}>
@@ -79,7 +105,7 @@ const PizzaItem = ({ item }) => {
           </ul>
         </div>
         <div className={scss.wrapperPrice}>
-          <div className={scss.priceText}> {price} грн</div>
+          <div className={scss.priceText}> {fullPrice} грн</div>
           <button className={scss.addBtn} onClick={handleAddItem}>
             <svg className={scss.svgBtn} width="12" height="12">
               <use href={`${sprite}#icon-plus`}></use>
