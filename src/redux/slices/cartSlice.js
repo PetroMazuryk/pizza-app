@@ -6,6 +6,14 @@ const initialState = {
   totalCount: 0,
 };
 
+const updateCartTotals = (state) => {
+  state.totalPrice = state.items.reduce(
+    (acc, item) => acc + item.price * item.count,
+    0
+  );
+  state.totalCount = state.items.reduce((acc, item) => acc + item.count, 0);
+};
+
 const cartSlice = createSlice({
   name: 'cart',
   initialState,
@@ -14,48 +22,24 @@ const cartSlice = createSlice({
       const findItem = state.items.find(
         (item) => item.id === action.payload.id
       );
-      if (findItem) {
-        findItem.count++;
-      } else {
-        state.items.push({
-          ...action.payload,
-          count: 1,
-        });
-      }
 
-      state.totalPrice = state.items.reduce((acc, item) => {
-        return acc + item.price * item.count;
-      }, 0);
+      findItem
+        ? findItem.count++
+        : state.items.push({ ...action.payload, count: 1 });
 
-      state.totalCount = state.items.reduce((acc, item) => {
-        return acc + item.count;
-      }, 0);
+      updateCartTotals(state);
     },
 
     minusItem: (state, action) => {
       const findItem = state.items.find((item) => item.id === action.payload);
-
-      if (findItem) {
-        findItem.count--;
-      }
-
-      state.totalPrice = state.items.reduce(
-        (acc, item) => acc + item.price * item.count,
-        0
-      );
-
-      state.totalCount = state.items.reduce((acc, item) => acc + item.count, 0);
+      console.log(findItem);
+      if (findItem && findItem.count > 0) findItem.count--;
+      updateCartTotals(state);
     },
 
     removeItem: (state, action) => {
       state.items = state.items.filter((item) => item.id !== action.payload);
-
-      state.totalPrice = state.items.reduce(
-        (acc, item) => acc + item.price * item.count,
-        0
-      );
-
-      state.totalCount = state.items.reduce((acc, item) => acc + item.count, 0);
+      updateCartTotals(state);
     },
 
     clearItems: (state) => {
@@ -67,5 +51,4 @@ const cartSlice = createSlice({
 });
 
 export const { addItem, minusItem, removeItem, clearItems } = cartSlice.actions;
-
 export const cartReducer = cartSlice.reducer;
