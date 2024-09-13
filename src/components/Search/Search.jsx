@@ -30,10 +30,9 @@ const Search = () => {
       } else {
         setError('');
         dispatch(changeFilterSearch(str));
-        console.log('searc');
       }
     }, 300),
-    []
+    [schema, dispatch]
   );
 
   const onChangeInput = (event) => {

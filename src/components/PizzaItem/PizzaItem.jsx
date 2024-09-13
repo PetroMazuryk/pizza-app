@@ -13,13 +13,17 @@ import scss from './PizzaItem.module.scss';
 const PizzaItem = ({ item }) => {
   const { imageUrl, title, types, sizes, price, ingredients, id } = item;
 
+  const [activeType, setActiveType] = useState(0);
+  const [activeSize, setActiveSize] = useState(0);
   const dispatch = useDispatch();
 
   const cartItems = useSelector(selectCartItems);
-  const cartItem = cartItems.find((item) => item.id === id);
-
-  const [activeType, setActiveType] = useState(0);
-  const [activeSize, setActiveSize] = useState(0);
+  const cartItem = cartItems.find(
+    (item) =>
+      item.id === id &&
+      item.type === types[activeType] &&
+      item.size === sizes[activeSize]
+  );
 
   const addedCount = cartItem ? cartItem.count : 0;
 

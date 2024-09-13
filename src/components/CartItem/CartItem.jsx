@@ -12,19 +12,19 @@ const CartItem = ({ item }) => {
 
   const onClickPlus = () => {
     if (count < 8) {
-      dispatch(addItem({ id }));
+      dispatch(addItem({ id, type, size }));
     }
   };
 
   const onClickMinus = () => {
     if (count === 1) {
-      dispatch(removeItem(id));
+      dispatch(removeItem({ id, type, size }));
     }
-    dispatch(minusItem(id));
+    dispatch(minusItem({ id, type, size }));
   };
 
   const onClickRemove = () => {
-    dispatch(removeItem(id));
+    dispatch(removeItem({ id, type, size }));
   };
 
   return (

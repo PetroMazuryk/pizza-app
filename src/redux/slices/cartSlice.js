@@ -19,8 +19,10 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addItem: (state, action) => {
+      const { id, type, size } = action.payload;
+
       const findItem = state.items.find(
-        (item) => item.id === action.payload.id
+        (item) => item.id === id && item.type === type && item.size === size
       );
 
       findItem
@@ -31,14 +33,22 @@ const cartSlice = createSlice({
     },
 
     minusItem: (state, action) => {
-      const findItem = state.items.find((item) => item.id === action.payload);
-      console.log(findItem);
+      const { id, type, size } = action.payload;
+
+      const findItem = state.items.find(
+        (item) => item.id === id && item.type === type && item.size === size
+      );
+
       if (findItem && findItem.count > 0) findItem.count--;
       updateCartTotals(state);
     },
 
     removeItem: (state, action) => {
-      state.items = state.items.filter((item) => item.id !== action.payload);
+      const { id, type, size } = action.payload;
+
+      state.items = state.items.filter(
+        (item) => !(item.id === id && item.type === type && item.size === size)
+      );
       updateCartTotals(state);
     },
 

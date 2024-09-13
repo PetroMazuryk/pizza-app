@@ -7,7 +7,7 @@ const EmptyCart = () => {
   return (
     <div className={scss.container}>
       <div className={scss.cartWrapper}>
-        <h2 className={scss.cartTitle}>Корзина пуста</h2>
+        <h2 className={scss.cartTitle}>Ваша корзина пуста</h2>
 
         <p className={scss.cartText}>
           Ймовірно, що Ви досі не замовили піцу.
