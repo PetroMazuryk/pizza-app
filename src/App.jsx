@@ -1,7 +1,6 @@
-import { Suspense, lazy } from 'react';
+import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Header from './components/Header/Header';
-import Container from './components/Container/Container';
+import ShardLayout from './components/ShardLayout/ShardLayout';
 
 const HomePage = lazy(() => import('./pages/Home'));
 const CartPage = lazy(() => import('./pages/Cart'));
@@ -10,17 +9,14 @@ const FullPizza = lazy(() => import('./pages/FullPizza'));
 
 const App = () => {
   return (
-    <Container>
-      <Header />
-      <Suspense fallback="Loading...">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/item/:id" element={<FullPizza />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </Suspense>
-    </Container>
+    <Routes>
+      <Route path="/" element={<ShardLayout />}>
+        <Route path="" element={<HomePage />} />
+        <Route path="cart" element={<CartPage />} />
+        <Route path="item/:id" element={<FullPizza />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Route>
+    </Routes>
   );
 };
 export default App;

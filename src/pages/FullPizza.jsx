@@ -8,19 +8,22 @@ axios.defaults.baseURL = import.meta.env.VITE_API_TEST;
 
 const FullPizza = () => {
   const { id } = useParams();
+  // const navigate = useNavigate();
   const [pizzaItem, setPizzaItem] = useState();
 
   useEffect(() => {
-    const FecthPizzaById = async () => {
+    const fecthPizzaById = async () => {
       try {
         const { data } = await axios.get(`/items/${id}`);
         setPizzaItem(data);
       } catch (error) {
+        // alert('Помилка при отриманні піци');
+        // navigate('/');
         console.log(error.message);
       }
     };
 
-    FecthPizzaById();
+    fecthPizzaById();
   }, [id]);
 
   if (!pizzaItem) {
