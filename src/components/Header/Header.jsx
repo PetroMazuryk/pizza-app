@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import {
   selectTotalPrice,
@@ -13,6 +13,7 @@ import scss from './Header.module.scss';
 const Header = () => {
   const totalPrice = useSelector(selectTotalPrice);
   const totalCount = useSelector(selectTotalCount);
+  const { pathname } = useLocation();
 
   return (
     <header className={scss.header}>
@@ -33,7 +34,9 @@ const Header = () => {
             </div>
           </NavLink>
         </div>
-        <Search />
+
+        {pathname !== '/cart' && <Search />}
+
         <NavLink className={scss.linkCartWarpper} to="/cart">
           <p className={scss.cartText}> {totalPrice} грн.</p>
           <div className={scss.cartDelimiter}></div>
