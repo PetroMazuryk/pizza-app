@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeFilterSearch } from '../../redux/slices/filterSlice';
+import { changeFilterSearch, setPage } from '../../redux/slices/filterSlice';
 import { selectFilter } from '../../redux/slices/selectors';
 import Joi from 'joi';
 import debounce from 'lodash.debounce';
@@ -15,7 +15,7 @@ const Search = () => {
   const [localValue, setLocalValue] = useState(inputValue);
   const [error, setError] = useState('');
 
-  const schema = Joi.string().min(3).max(26).messages({
+  const schema = Joi.string().min(3).max(20).messages({
     'string.empty': 'Поле не може бути порожнім',
     'string.min': 'Назва  від 3 символів',
     'string.max': 'Назва до 20 символів',
@@ -30,9 +30,10 @@ const Search = () => {
       } else {
         setError('');
         dispatch(changeFilterSearch(str));
+        dispatch(setPage(1));
       }
     }, 300),
-    [schema, dispatch]
+    [dispatch]
   );
 
   const onChangeInput = (event) => {
@@ -44,6 +45,7 @@ const Search = () => {
   const handleClearClick = () => {
     setLocalValue('');
     dispatch(changeFilterSearch(''));
+    dispatch(setPage(1));
     setError('');
     inputRef.current.focus();
   };

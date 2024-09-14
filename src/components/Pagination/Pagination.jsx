@@ -1,14 +1,17 @@
 import ReactPaginate from 'react-paginate';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectPage, selectPageCount } from '../../redux/slices/selectors';
+import {
+  selectCurrentPage,
+  selectCountPage,
+} from '../../redux/slices/selectors';
 import { setPage } from '../../redux/slices/filterSlice';
 
 import scss from './Pagination.module.scss';
 
 const Pagination = () => {
   const dispatch = useDispatch();
-  const pageCount = useSelector(selectPageCount);
-  const page = useSelector(selectPage);
+  const countPage = useSelector(selectCountPage);
+  const currentPage = useSelector(selectCurrentPage);
 
   const handlePageClick = (event) => {
     dispatch(setPage(event.selected + 1));
@@ -23,8 +26,8 @@ const Pagination = () => {
       previousLabel="<"
       pageRangeDisplayed={6}
       onPageChange={(event) => handlePageClick(event)}
-      pageCount={pageCount}
-      forcePage={page - 1}
+      pageCount={countPage}
+      forcePage={Math.min(currentPage - 1, countPage - 1)}
       renderOnZeroPageCount={null}
       activeClassName={scss.selected}
     />

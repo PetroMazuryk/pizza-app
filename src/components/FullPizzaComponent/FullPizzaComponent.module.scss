@@ -9,7 +9,7 @@
 .img {
   width: 280px;
   text-align: center;
-  transition: all 250ms ease;
+  transition: var(--transition);
 
   &:hover {
     transform: rotate(45deg);

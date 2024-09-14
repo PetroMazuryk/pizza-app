@@ -5,7 +5,7 @@ const initialState = {
   filterSearch: '',
   categoryId: 0,
   page: 1,
-  pageCount: 1,
+  countPage: 1,
   sort: {
     name: 'популярністю',
     value: 'rating',
@@ -31,7 +31,10 @@ const filterSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchPizzasByCategory.fulfilled, (state, action) => {
-      state.pageCount = Math.ceil(action.payload.length / 6);
+      state.countPage = Math.ceil(action.payload.length / 6);
+      if (state.page > state.countPage) {
+        state.page = state.countPage;
+      }
     });
   },
 });

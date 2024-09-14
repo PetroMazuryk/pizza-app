@@ -4,7 +4,7 @@ import {
   selectFilter,
   selectCategoryId,
   selectSortType,
-  selectPage,
+  selectCurrentPage,
   selectError,
 } from '../redux/slices/selectors';
 import { fetchPizzas, fetchPizzasByCategory } from '../redux/slices/operations';
@@ -18,7 +18,7 @@ const Home = () => {
   const searchValue = useSelector(selectFilter);
   const categoryId = useSelector(selectCategoryId);
   const sortType = useSelector(selectSortType);
-  const page = useSelector(selectPage);
+  const page = useSelector(selectCurrentPage);
   const error = useSelector(selectError);
   const dispatch = useDispatch();
 
