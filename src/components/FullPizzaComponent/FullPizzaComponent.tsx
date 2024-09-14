@@ -1,6 +1,16 @@
 import scss from './FullPizzaComponent.module.scss';
 
-const FullPizzaComponent = ({ item }) => {
+interface IPizzaItem {
+  imageUrl: string;
+  title: string;
+  ingredients: string;
+}
+
+interface IFullPizzaComponentProps {
+  item: IPizzaItem;
+}
+
+const FullPizzaComponent: React.FC<IFullPizzaComponentProps> = ({ item }) => {
   const { imageUrl, title, ingredients } = item;
 
   return (

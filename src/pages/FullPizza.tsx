@@ -1,4 +1,5 @@
 import axios from 'axios';
+import React from 'react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -6,20 +7,26 @@ import FullPizzaComponent from '../components/FullPizzaComponent/FullPizzaCompon
 
 axios.defaults.baseURL = import.meta.env.VITE_API_TEST;
 
-const FullPizza = () => {
+const FullPizza: React.FC = () => {
   const { id } = useParams();
   // const navigate = useNavigate();
-  const [pizzaItem, setPizzaItem] = useState();
+  const [pizzaItem, setPizzaItem] = useState<{
+    imageUrl: string;
+    title: string;
+    ingredients: string;
+  }>();
 
   useEffect(() => {
     const fecthPizzaById = async () => {
       try {
         const { data } = await axios.get(`/items/${id}`);
         setPizzaItem(data);
-      } catch (error) {
+      } catch (error: unknown) {
         // alert('Помилка при отриманні піци');
         // navigate('/');
-        console.log(error.message);
+        if (error instanceof Error) {
+          console.log(error.message);
+        }
       }
     };
 
