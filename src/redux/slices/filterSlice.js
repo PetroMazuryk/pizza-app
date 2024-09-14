@@ -28,6 +28,9 @@ const filterSlice = createSlice({
     setPage: (state, action) => {
       state.page = action.payload;
     },
+    clearPage: (state) => {
+      state.page = initialState.page;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchPizzasByCategory.fulfilled, (state, action) => {
@@ -39,7 +42,12 @@ const filterSlice = createSlice({
   },
 });
 
-export const { changeFilterSearch, setCategoryId, setSortType, setPage } =
-  filterSlice.actions;
+export const {
+  changeFilterSearch,
+  setCategoryId,
+  setSortType,
+  setPage,
+  clearPage,
+} = filterSlice.actions;
 
 export const filtersReducer = filterSlice.reducer;
