@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState, useEffect } from 'react';
+import { useCallback, useRef, useState, useEffect, FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeFilterSearch, setPage } from '../../redux/slices/filterSlice';
 import { selectFilter } from '../../redux/slices/selectors';
@@ -8,9 +8,9 @@ import debounce from 'lodash.debounce';
 import sprite from '../../assets/sprite.svg';
 import scss from './Search.module.scss';
 
-const Search = () => {
+const Search: FC = () => {
   const dispatch = useDispatch();
-  const inputRef = useRef();
+  const inputRef = useRef<HTMLInputElement>(null);
   const inputValue = useSelector(selectFilter);
   const [localValue, setLocalValue] = useState(inputValue);
   const [error, setError] = useState('');
@@ -36,7 +36,7 @@ const Search = () => {
     [dispatch]
   );
 
-  const onChangeInput = (event) => {
+  const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
     setLocalValue(newValue);
     updateSearchValue(newValue);
@@ -47,7 +47,7 @@ const Search = () => {
     dispatch(changeFilterSearch(''));
     dispatch(setPage(1));
     setError('');
-    inputRef.current.focus();
+    inputRef.current?.focus();
   };
 
   useEffect(() => {

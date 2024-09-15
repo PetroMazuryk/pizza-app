@@ -1,9 +1,9 @@
-import { Suspense } from 'react';
+import { Suspense, FC } from 'react';
 import { Outlet } from 'react-router-dom';
 import Container from '../Container/Container';
 import Header from '../Header/Header';
 
-const ShardLayout = () => {
+const ShardLayout: FC = () => {
   return (
     <Container>
       <Header />

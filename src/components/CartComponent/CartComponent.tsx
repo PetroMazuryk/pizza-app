@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
@@ -7,12 +8,12 @@ import {
   selectTotalPrice,
   selectTotalCount,
 } from '../../redux/slices/selectors';
-import CartItem from '../CartItem/CartItem';
+import CartItem, { ICartItem } from '../CartItem/CartItem';
 
 import sprite from '../../assets/sprite.svg';
 import scss from './CartComponent.module.scss';
 
-const CartComponent = () => {
+const CartComponent: FC = () => {
   const dispatch = useDispatch();
   const items = useSelector(selectCartItems);
   const totalPrice = useSelector(selectTotalPrice);
@@ -42,7 +43,7 @@ const CartComponent = () => {
       </div>
 
       <ul>
-        {items.map((item) => (
+        {items.map((item: ICartItem) => (
           <CartItem key={item.id} item={item} />
         ))}
       </ul>
@@ -65,9 +66,9 @@ const CartComponent = () => {
           <p className={scss.backTextBtn}>Повернутися назад</p>
         </NavLink>
 
-        <NavLink className={scss.payBtn}>
+        <button className={scss.payBtn}>
           <p className={scss.payText}>Оплатити замовлення</p>
-        </NavLink>
+        </button>
       </div>
     </div>
   );

@@ -1,4 +1,9 @@
-export const sortOptions = [
+export interface ISortOptions {
+  name: string;
+  value: string;
+}
+
+export const sortOptions: ISortOptions[] = [
   { name: 'популярностю', value: 'rating' },
   { name: 'алфавітом (DESC)', value: 'title' },
   { name: 'алфавітом (ASC)', value: '-title' },

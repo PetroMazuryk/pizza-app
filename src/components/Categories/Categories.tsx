@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { FC } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCategoryId, clearPage } from '../../redux/slices/filterSlice';
 import { selectCategoryId } from '../../redux/slices/selectors';
@@ -6,11 +7,11 @@ import { categoryOptions } from '../../constants/categoryOptions';
 
 import scss from './Categories.module.scss';
 
-const Categories = () => {
+const Categories: FC = () => {
   const categoryId = useSelector(selectCategoryId);
   const dispatch = useDispatch();
 
-  const handleCategory = (idx) => {
+  const handleCategory = (idx: number) => {
     dispatch(setCategoryId(idx));
     dispatch(clearPage());
   };

@@ -8,12 +8,16 @@ import { setPage } from '../../redux/slices/filterSlice';
 
 import scss from './Pagination.module.scss';
 
+interface IPageClickEvent {
+  selected: number;
+}
+
 const Pagination = () => {
   const dispatch = useDispatch();
   const countPage = useSelector(selectCountPage);
   const currentPage = useSelector(selectCurrentPage);
 
-  const handlePageClick = (event) => {
+  const handlePageClick = (event: IPageClickEvent) => {
     dispatch(setPage(event.selected + 1));
     window.scroll(0, 0);
   };
@@ -28,7 +32,6 @@ const Pagination = () => {
       onPageChange={(event) => handlePageClick(event)}
       pageCount={countPage}
       forcePage={Math.min(currentPage - 1, countPage - 1)}
-      renderOnZeroPageCount={null}
       activeClassName={scss.selected}
     />
   );

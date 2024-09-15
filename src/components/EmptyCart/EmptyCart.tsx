@@ -1,9 +1,10 @@
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import emptyImg from '../../assets/emptyBasket.png';
 
 import scss from './EmptyCart.module.scss';
 
-const EmptyCart = () => {
+const EmptyCart: React.FC = () => {
   return (
     <div className={scss.container}>
       <div className={scss.cartWrapper}>

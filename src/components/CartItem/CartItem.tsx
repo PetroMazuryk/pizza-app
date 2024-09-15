@@ -1,18 +1,33 @@
+import { FC } from 'react';
 import { useDispatch } from 'react-redux';
-import { addItem, minusItem, removeItem } from '../../redux/slices/cartSlice';
+import { plusItem, minusItem, removeItem } from '../../redux/slices/cartSlice';
 
 import { typeOptions } from '../../constants/typeOptions';
 import sprite from '../../assets/sprite.svg';
 
 import scss from './CartItem.module.scss';
 
-const CartItem = ({ item }) => {
+export interface ICartItem {
+  id: string;
+  imageUrl: string;
+  title: string;
+  price: number;
+  type: number;
+  size: number;
+  count: number;
+}
+
+interface ICartItemProps {
+  item: ICartItem;
+}
+
+const CartItem: FC<ICartItemProps> = ({ item }) => {
   const { imageUrl, title, price, type, size, count, id } = item;
   const dispatch = useDispatch();
 
   const onClickPlus = () => {
     if (count < 8) {
-      dispatch(addItem({ id, type, size }));
+      dispatch(plusItem({ id, type, size }));
     }
   };
 

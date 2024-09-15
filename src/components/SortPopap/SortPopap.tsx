@@ -1,28 +1,28 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { setSortType } from '../../redux/slices/filterSlice';
 import { selectSortType } from '../../redux/slices/selectors';
-import { sortOptions } from '../../constants/sortOptions';
+import { sortOptions, ISortOptions } from '../../constants/sortOptions';
 
 import sprite from '../../assets/sprite.svg';
 import scss from './SortPopap.module.scss';
 
-const SortPopup = () => {
+const SortPopup: FC = () => {
   const dispatch = useDispatch();
   const sort = useSelector(selectSortType);
   const [visiblePopup, setVisiblePopup] = useState(false);
   const [isRotated, setIsRotated] = useState(false);
-  const popupRef = useRef();
+  const popupRef = useRef<HTMLDivElement>(null);
 
-  const onClickListItem = (value) => {
+  const onClickListItem = (value: ISortOptions) => {
     dispatch(setSortType(value));
     setVisiblePopup(false);
     setIsRotated(false);
   };
 
-  const handleOutsideClick = (e) => {
-    if (popupRef.current && !popupRef.current.contains(e.target)) {
+  const handleOutsideClick = (e: MouseEvent) => {
+    if (popupRef.current && !popupRef.current.contains(e.target as Node)) {
       setVisiblePopup(false);
       setIsRotated(false);
     }

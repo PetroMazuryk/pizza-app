@@ -1,8 +1,9 @@
+import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import notFoundImg from '../../assets/notFound.png';
 import scss from './NotFoundComponent.module.scss';
 
-const NotFoundComponent = () => {
+const NotFoundComponent: FC = () => {
   return (
     <div className={scss.errorWrapper}>
       <div className={scss.imgThumb}>
