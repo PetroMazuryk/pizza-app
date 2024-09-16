@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { useSelector } from 'react-redux';
 import {
   selectCategoryId,
@@ -8,14 +9,14 @@ import {
   selectError,
 } from '../../redux/slices/selectors';
 import { categoryOptions } from '../../constants/categoryOptions';
-import Notification from '../../components/Notification/Notification';
+import Notification from '../Notification/Notification';
 
 import Skeleton from '../Skeleton/Skeleton';
-import PizzaItem from '../PizzaItem/PizzaItem';
+import PizzaItem, { IPizza } from '../PizzaItem/PizzaItem';
 import notFound from '../../assets/notFound.webp';
 import scss from './PizzaList.module.scss';
 
-const PizzaList = () => {
+const PizzaList: FC = () => {
   const categoryId = useSelector(selectCategoryId);
   const items = useSelector(selectPizzas);
   const allItems = useSelector(selectAllItems);

@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import {
@@ -10,7 +11,7 @@ import Search from '../Search/Search';
 import sprite from '../../assets/sprite.svg';
 import scss from './Header.module.scss';
 
-const Header = () => {
+const Header: FC = () => {
   const totalPrice = useSelector(selectTotalPrice);
   const totalCount = useSelector(selectTotalCount);
   const { pathname } = useLocation();

@@ -1,5 +1,6 @@
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useEffect, FC } from 'react';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from '../redux/store';
 import {
   selectFilter,
   selectCategoryId,
@@ -14,13 +15,13 @@ import PizzaList from '../components/PizzaList/PizzaList';
 
 import Pagination from '../components/Pagination/Pagination';
 
-const Home = () => {
+const Home: FC = () => {
   const searchValue = useSelector(selectFilter);
   const categoryId = useSelector(selectCategoryId);
   const sortType = useSelector(selectSortType);
   const page = useSelector(selectCurrentPage);
   const error = useSelector(selectError);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const category = categoryId > 0 ? `category=${categoryId}` : '';

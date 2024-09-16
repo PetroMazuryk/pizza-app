@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef, FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setSortType } from '../../redux/slices/filterSlice';
+import { setSortType, ISort } from '../../redux/slices/filterSlice';
 import { selectSortType } from '../../redux/slices/selectors';
-import { sortOptions, ISortOptions } from '../../constants/sortOptions';
+import { sortOptions } from '../../constants/sortOptions';
 
 import sprite from '../../assets/sprite.svg';
 import scss from './SortPopap.module.scss';
@@ -15,7 +15,7 @@ const SortPopup: FC = () => {
   const [isRotated, setIsRotated] = useState(false);
   const popupRef = useRef<HTMLDivElement>(null);
 
-  const onClickListItem = (value: ISortOptions) => {
+  const onClickListItem = (value: ISort) => {
     dispatch(setSortType(value));
     setVisiblePopup(false);
     setIsRotated(false);
@@ -57,7 +57,7 @@ const SortPopup: FC = () => {
       {visiblePopup && (
         <div className={scss.sortPopap}>
           <ul>
-            {sortOptions.map((option, index) => (
+            {sortOptions.map((option: ISort, index) => (
               <li
                 key={index}
                 onClick={() => onClickListItem(option)}

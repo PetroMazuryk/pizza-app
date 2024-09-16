@@ -32,7 +32,6 @@ const Categories: FC = () => {
           </li>
         ))}
       </ul>
-      {/* <div className={scss.titleCategory}>{categoryOptions[activeIndex]}</div> */}
     </div>
   );
 };

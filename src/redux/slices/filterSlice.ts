@@ -1,7 +1,20 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { fetchPizzasByCategory } from './operations';
 
-const initialState = {
+export interface ISort {
+  name: string;
+  value: 'rating' | 'title' | 'price' | '-title' | '-price';
+}
+
+interface IFilterSlice {
+  filterSearch: string;
+  categoryId: number;
+  page: number;
+  countPage: number;
+  sort: ISort;
+}
+
+const initialState: IFilterSlice = {
   filterSearch: '',
   categoryId: 0,
   page: 1,
@@ -16,16 +29,16 @@ const filterSlice = createSlice({
   name: 'filters',
   initialState,
   reducers: {
-    changeFilterSearch: (state, action) => {
+    changeFilterSearch: (state, action: PayloadAction<string>) => {
       state.filterSearch = action.payload;
     },
-    setCategoryId(state, action) {
+    setCategoryId(state, action: PayloadAction<number>) {
       state.categoryId = action.payload;
     },
-    setSortType: (state, action) => {
+    setSortType: (state, action: PayloadAction<ISort>) => {
       state.sort = action.payload;
     },
-    setPage: (state, action) => {
+    setPage: (state, action: PayloadAction<number>) => {
       state.page = action.payload;
     },
     clearPage: (state) => {

@@ -78,7 +78,7 @@ const CartItem: FC<ICartItemProps> = ({ item }) => {
           </svg>
         </div>
 
-        <p className={scss.cartPriceText}>{price * count}</p>
+        <p className={scss.cartPriceText}>{price * count} грн.</p>
 
         <svg
           onClick={onClickRemove}

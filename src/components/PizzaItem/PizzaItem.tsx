@@ -1,4 +1,5 @@
-import { useState, useCallback, useMemo } from 'react';
+import { SyntheticEvent } from 'react';
+import { useState, useCallback, useMemo, FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem } from '../../redux/slices/cartSlice';
 import { selectCartItems } from '../../redux/slices/selectors';
@@ -10,7 +11,21 @@ import sprite from '../../assets/sprite.svg';
 
 import scss from './PizzaItem.module.scss';
 
-const PizzaItem = ({ item }) => {
+export interface IPizza {
+  id: string;
+  title: string;
+  imageUrl: string;
+  price: number;
+  types: number[];
+  sizes: number[];
+  ingredients?: string;
+}
+
+interface PizzaItemProps {
+  item: IPizza;
+}
+
+const PizzaItem: FC<PizzaItemProps> = ({ item }) => {
   const { imageUrl, title, types, sizes, price, ingredients, id } = item;
 
   const [activeType, setActiveType] = useState(0);
@@ -27,9 +42,12 @@ const PizzaItem = ({ item }) => {
 
   const addedCount = cartItem ? cartItem.count : 0;
 
-  const handleImageError = useCallback((event) => {
-    event.target.src = pizzaDefault;
-  }, []);
+  const handleImageError = useCallback(
+    (event: SyntheticEvent<HTMLImageElement, Event>) => {
+      event.currentTarget.src = pizzaDefault;
+    },
+    []
+  );
 
   const fullPrice = useMemo(() => {
     let basePrice = price;
@@ -54,6 +72,7 @@ const PizzaItem = ({ item }) => {
       price: fullPrice,
       type: types[activeType],
       size: sizes[activeSize],
+      count: 1,
     };
     dispatch(addItem(item));
   }, [

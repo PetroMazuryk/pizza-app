@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import ReactPaginate from 'react-paginate';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -12,7 +13,7 @@ interface IPageClickEvent {
   selected: number;
 }
 
-const Pagination = () => {
+const Pagination: FC = () => {
   const dispatch = useDispatch();
   const countPage = useSelector(selectCountPage);
   const currentPage = useSelector(selectCurrentPage);

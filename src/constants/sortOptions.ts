@@ -1,6 +1,6 @@
 export interface ISortOptions {
   name: string;
-  value: string;
+  value: 'rating' | 'title' | 'price' | '-title' | '-price';
 }
 
 export const sortOptions: ISortOptions[] = [

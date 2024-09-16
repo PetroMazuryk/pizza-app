@@ -99,7 +99,6 @@
 
   .cartWrapper {
     max-width: 360px;
-    margin-right: 76px;
   }
 
   .cartItemImg {
@@ -141,6 +140,7 @@
   }
 
   .cartPriceText {
+    width: 100px;
     font-size: 18px;
     line-height: 22px;
     margin-right: 40px;
