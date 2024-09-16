@@ -32,9 +32,9 @@ const CartItem: FC<ICartItemProps> = ({ item }) => {
   };
 
   const onClickMinus = () => {
-    if (count === 1) {
-      dispatch(removeItem({ id, type, size }));
-    }
+    // if (count === 1) {
+    //   dispatch(removeItem({ id, type, size }));
+    // }
     dispatch(minusItem({ id, type, size }));
   };
 
@@ -58,36 +58,35 @@ const CartItem: FC<ICartItemProps> = ({ item }) => {
 
       <div className={scss.priceWrapper}>
         <div className={scss.countWrapper}>
-          <svg
+          <button
+            disabled={count === 1}
             onClick={onClickMinus}
-            className={scss.cartIcon}
-            width="18"
-            height="18"
+            className={scss.cartMinusBtn}
           >
-            <use href={`${sprite}#icon-circle-minus`} />
-          </svg>
-          <p className={scss.countText}>{count}</p>
+            <svg className={scss.cartIconMinus} width="18" height="18">
+              <use href={`${sprite}#icon-circle-minus`} />
+            </svg>
+          </button>
 
-          <svg
-            onClick={onClickPlus}
-            className={scss.cartIcon}
-            width="18"
-            height="18"
-          >
-            <use href={`${sprite}#icon-circle-plus`} />
-          </svg>
+          <p className={scss.countText}>{count}</p>
+          <button onClick={onClickPlus} className={scss.cartPlusBtn}>
+            <svg className={scss.cartIconPlus} width="18" height="18">
+              <use href={`${sprite}#icon-circle-plus`} />
+            </svg>
+          </button>
         </div>
 
         <p className={scss.cartPriceText}>{price * count} грн.</p>
-
-        <svg
-          onClick={onClickRemove}
-          className={scss.deleteIcon}
-          width="18"
-          height="18"
-        >
-          <use href={`${sprite}#icon-cancel-circle`} />
-        </svg>
+        <button>
+          <svg
+            onClick={onClickRemove}
+            className={scss.deleteIcon}
+            width="18"
+            height="18"
+          >
+            <use href={`${sprite}#icon-cancel-circle`} />
+          </svg>
+        </button>
       </div>
     </li>
   );
