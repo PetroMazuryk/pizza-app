@@ -119,6 +119,7 @@
   transition: var(--transition);
 
   &:hover {
+    fill: var(--bg-cart-hover);
     transform: var(--transform);
   }
 }

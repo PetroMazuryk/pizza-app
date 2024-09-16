@@ -103,16 +103,12 @@
 
   &:hover {
     transform: var(--transform);
-  }
-
-  &:hover {
-    transform: scale(1.05);
     background: var(--bg-cart-hover);
   }
 }
 
 .backIcon {
-  margin-right: 4px;
+  transition: var(--transition);
   fill: var(--btn-text-accent);
 }
 
@@ -122,6 +118,7 @@
   font-weight: 700;
   padding: 6px;
   color: var(--btn-text-accent);
+  transition: var(--transition);
 }
 
 .payBtn {
