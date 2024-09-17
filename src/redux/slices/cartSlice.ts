@@ -107,4 +107,13 @@ const cartSlice = createSlice({
 
 export const { addItem, minusItem, plusItem, removeItem, clearItems } =
   cartSlice.actions;
-export const cartReducer = cartSlice.reducer;
+
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
+const persistConfig = {
+  key: 'root',
+  storage,
+};
+
+export const cartReducer = persistReducer(persistConfig, cartSlice.reducer);
