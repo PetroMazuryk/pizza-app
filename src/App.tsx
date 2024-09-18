@@ -5,7 +5,7 @@ import ShardLayout from './components/ShardLayout/ShardLayout';
 const HomePage = lazy(() => import('./pages/Home'));
 const CartPage = lazy(() => import('./pages/Cart'));
 const NotFoundPage = lazy(() => import('./pages/NotFound'));
-const FullPizza = lazy(() => import('./pages/FullPizza'));
+const FullPizzaPage = lazy(() => import('./pages/FullPizza'));
 
 const App = () => {
   return (
@@ -13,7 +13,7 @@ const App = () => {
       <Route path="/" element={<ShardLayout />}>
         <Route path="" element={<HomePage />} />
         <Route path="cart" element={<CartPage />} />
-        <Route path="item/:id" element={<FullPizza />} />
+        <Route path="item/:id" element={<FullPizzaPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>

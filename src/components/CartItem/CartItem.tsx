@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { plusItem, minusItem, removeItem } from '../../redux/slices/cartSlice';
 
@@ -45,7 +46,9 @@ const CartItem: FC<ICartItemProps> = ({ item }) => {
   return (
     <li className={scss.cartItemWrapper}>
       <div className={scss.cartWrapper}>
-        <img className={scss.cartItemImg} src={imageUrl} alt="Image pizza" />
+        <Link className={scss.cartItemImg} to={`/item/${id}`}>
+          <img src={imageUrl} alt="Image pizza" />
+        </Link>
 
         <div className={scss.cartItemDesc}>
           <h3 className={scss.cartItemTitle}>{title}</h3>
