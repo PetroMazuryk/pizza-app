@@ -52,9 +52,6 @@
     align-items: center;
     margin: 40px auto;
   }
-  .img {
-    width: 340px;
-  }
 }
 
 .backLink {
@@ -80,6 +77,10 @@
   .container {
     flex-direction: row;
     gap: 26px;
+  }
+
+  .img {
+    width: 340px;
   }
 
   .backLink {
