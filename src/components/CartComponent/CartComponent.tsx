@@ -44,7 +44,7 @@ const CartComponent: FC = () => {
 
       <ul>
         {items.map((item: ICartItem) => (
-          <CartItem key={item.id} item={item} />
+          <CartItem key={`${item.id}_${item.size}_${item.type}`} item={item} />
         ))}
       </ul>
 
