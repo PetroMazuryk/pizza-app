@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './redux/store.js';
+import { HelmetProvider } from 'react-helmet-async';
 import App from './App.js';
 import './index.scss';
 
@@ -15,7 +16,9 @@ if (rootElem) {
       <BrowserRouter basename="/pizza-app">
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
-            <App />
+            <HelmetProvider>
+              <App />
+            </HelmetProvider>
           </PersistGate>
         </Provider>
       </BrowserRouter>

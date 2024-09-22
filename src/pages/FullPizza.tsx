@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import FullPizzaComponent from '../components/FullPizzaComponent/FullPizzaComponent';
+import DocumentTitle from '../components/DocumentTitle';
 
 axios.defaults.baseURL = import.meta.env.VITE_API_TEST;
 
@@ -49,7 +50,12 @@ const FullPizza: React.FC = () => {
     );
   }
 
-  return <FullPizzaComponent item={pizzaItem} />;
+  return (
+    <>
+      <DocumentTitle>Full pizza descriptions</DocumentTitle>
+      <FullPizzaComponent item={pizzaItem} />;
+    </>
+  );
 };
 
 export default FullPizza;

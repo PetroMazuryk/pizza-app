@@ -14,6 +14,7 @@ import HomeBar from '../components/HomeBar/HomeBar';
 import PizzaList from '../components/PizzaList/PizzaList';
 
 import Pagination from '../components/Pagination/Pagination';
+import DocumentTitle from '../components/DocumentTitle';
 
 const Home: FC = () => {
   const searchValue = useSelector(selectFilter);
@@ -41,6 +42,8 @@ const Home: FC = () => {
 
   return (
     <>
+      <DocumentTitle>Home page pizza</DocumentTitle>
+
       <HomeBar />
 
       <PizzaList />
